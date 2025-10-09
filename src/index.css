@@ -1,213 +1,72 @@
-/* Reset and base styles */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
-  line-height: 1.6;
-  color: var(--text-primary);
-  background-color: var(--white);
-  overflow-x: hidden;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
 }
 
 #root {
+  width: 100%;
   min-height: 100vh;
 }
 
-/* Color variables - Minimalist Modern Palette */
-:root {
-  --primary: #1a1a1a;
-  --secondary: #2d2d2d;
-  --accent: #f5f5f5;
-  --white: #ffffff;
-  --light-gray: #e5e5e5;
-  --medium-gray: #8a8a8a;
-  --dark-gray: #404040;
-  --black: #0a0a0a;
-  --border: #e0e0e0;
-  --hover: #f8f8f8;
-  --text-primary: #1a1a1a;
-  --text-secondary: #6b6b6b;
-  --text-light: #ffffff;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: -0.025em;
-}
-
 h1 {
-  font-size: 4rem;
-  color: var(--text-primary);
-  font-weight: 300;
-  letter-spacing: -0.05em;
+  font-size: 3.2em;
   line-height: 1.1;
 }
 
-h2 {
-  font-size: 3rem;
-  color: var(--text-primary);
-  font-weight: 300;
-  letter-spacing: -0.025em;
-}
-
-h3 {
-  font-size: 2rem;
-  color: var(--text-primary);
-  font-weight: 400;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 32px;
-  background: var(--primary);
-  color: var(--white);
-  text-decoration: none;
-  border: 1px solid var(--primary);
-  border-radius: 0;
-  font-size: 0.9rem;
-  font-weight: 400;
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: white;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  transition: border-color 0.25s;
 }
 
-.btn:hover {
-  background: var(--white);
-  color: var(--primary);
-  border-color: var(--primary);
+button:hover {
+  border-color: #646cff;
 }
 
-.btn:active {
-  transform: translateY(1px);
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.btn-secondary {
-  background: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-}
-
-.btn-secondary:hover {
-  background: var(--primary);
-  color: var(--white);
-}
-
-/* Container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Sections */
-.section {
-  padding: 120px 0;
-}
-
-.section-dark {
-  background-color: var(--primary);
-  color: var(--white);
-}
-
-.section-light {
-  background-color: var(--white);
-  color: var(--text-primary);
-}
-
-/* Grid */
-.grid {
-  display: grid;
-  gap: 2rem;
-}
-
-.grid-2 {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.grid-4 {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-/* Cards */
-.card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 0;
-  padding: 2rem;
-  text-align: left;
-  transition: all 0.2s ease;
-  position: relative;
-}
-
-.card:hover {
-  border-color: var(--primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.card h3 {
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  font-weight: 400;
-}
-
-.card p {
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
   }
   
-  h2 {
-    font-size: 2rem;
+  button {
+    background-color: #f9f9f9;
   }
-  
-  .section {
-    padding: 60px 0;
-  }
-  
-  .btn {
-    padding: 10px 25px;
-    font-size: 1rem;
-  }
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--light-gray);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--medium-gray);
-  border-radius: 0;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--dark-gray);
 }
