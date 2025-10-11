@@ -31,13 +31,13 @@
 }
 
 .intro-text.first-text {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
   letter-spacing: 0.01em;
 }
 
 .intro-text.second-text {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #dc2626;
   letter-spacing: 0.01em;
   font-weight: 400;
@@ -81,21 +81,21 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .intro-text.first-text {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
   
   .intro-text.second-text {
-    font-size: 1.5rem;
+    font-size: 2.5rem !important;
   }
 }
 
 @media (max-width: 480px) {
   .intro-text.first-text {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
   
   .intro-text.second-text {
-    font-size: 1.2rem;
+    font-size: 2rem !important;
   }
 }
 

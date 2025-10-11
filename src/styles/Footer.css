@@ -194,6 +194,14 @@
   .social-links {
     justify-content: center;
   }
+  
+  .footer-developer {
+    text-align: center;
+  }
+  
+  .developer-link {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -234,5 +242,16 @@
   
   .footer-developer p {
     font-size: 0.8rem;
+  }
+  
+  .developer-link {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
+  }
+  
+  .developer-logo {
+    width: 18px;
+    height: 18px;
   }
 }

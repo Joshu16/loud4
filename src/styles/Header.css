@@ -126,32 +126,35 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 20px;
+  width: 32px;
+  height: 24px;
   cursor: pointer;
   position: relative;
   z-index: 1001;
+  padding: 4px;
 }
 
 .nav-burger span {
   display: block;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background: white;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+  border-radius: 3px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
 }
 
 .nav-burger.active span:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
+  transform: translateY(10px) rotate(45deg);
 }
 
 .nav-burger.active span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .nav-burger.active span:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 /* Main CTA Section */
@@ -299,17 +302,20 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(15, 15, 15, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     opacity: 0;
     visibility: hidden;
     transform: translateX(100%);
-    transition: all 0.4s ease-in-out;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1000;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .nav-right.nav-active {
@@ -318,15 +324,59 @@
     transform: translateX(0);
   }
   
-  .nav-link {
-    font-size: 1.5rem;
+  .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+  
+  .nav-close-btn:hover {
+    color: #dc2626;
+    transform: scale(1.1);
+  }
+  
+  .nav-link {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-link:hover {
+    color: #dc2626;
+    transform: translateY(-2px);
   }
   
   .nav-contact-btn {
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    min-width: 200px;
+    font-size: 1.4rem;
+    padding: 1.2rem 2.5rem;
+    min-width: 220px;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+    margin-top: 1rem;
+  }
+  
+  .nav-contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(220, 38, 38, 0.5);
   }
   
   .nav-burger {
@@ -334,25 +384,39 @@
   }
   
   .cta-text {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 1.1;
+  }
+  
+  .cta-main {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .cta-sub {
+    font-size: 2.2rem;
   }
   
   .cta-subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-top: 0.5rem;
   }
   
   .cta-button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.8rem;
-    min-width: 140px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+    min-width: 150px;
   }
   
   .cta-buttons {
     gap: 0.8rem;
+    margin-top: 1rem;
   }
   
   .main-cta {
     width: 95%;
+    gap: 1.2rem;
   }
 }
 
@@ -366,40 +430,55 @@
   }
   
   .nav-right {
-    gap: 0.8rem;
+    gap: 1.5rem;
     padding-right: 0;
   }
   
   .nav-link {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     padding: 0.4rem 0.6rem;
   }
   
   .nav-contact-btn {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    min-width: 180px;
   }
   
   .cta-text {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    line-height: 1.1;
+  }
+  
+  .cta-main {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .cta-sub {
+    font-size: 1.8rem;
   }
   
   .cta-subtitle {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-top: 0.3rem;
   }
   
   .cta-button {
-    padding: 0.6rem 1rem;
-    font-size: 0.7rem;
-    min-width: 120px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    min-width: 130px;
   }
   
   .cta-buttons {
     flex-direction: column;
     gap: 0.6rem;
+    margin-top: 0.8rem;
   }
   
   .main-cta {
     width: 95%;
+    gap: 1rem;
   }
 }

@@ -31,7 +31,9 @@ const MotionAnimation = ({
       } else if (aggressive) {
         triggerPoint = windowHeight * 1.5; // 150% de la pantalla
       } else {
-        triggerPoint = windowHeight * 1.2; // 120% de la pantalla
+        // Ajustar trigger point para móvil
+        const isMobile = window.innerWidth <= 768;
+        triggerPoint = isMobile ? windowHeight * 0.8 : windowHeight * 1.2; // 80% en móvil, 120% en desktop
       }
 
       // Si el elemento está cerca de entrar en pantalla

@@ -23,13 +23,57 @@ const Header = ({ initialAnimationComplete }) => {
           <h1 className="band-name">LOUD4</h1>
         </div>
         <div className="nav-right">
-          <a href="#home" className="nav-link">Inicio</a>
-          <a href="#about" className="nav-link">Nosotros</a>
-          <a href="#repertoire" className="nav-link">Música</a>
-          <a href="#gallery" className="nav-link">Galería</a>
-          <a href="#events" className="nav-link">Eventos</a>
-          <a href="#members" className="nav-link">Banda</a>
-          <button className="nav-contact-btn" onClick={() => window.location.href = '#contact'}>Contáctanos</button>
+          <div className="nav-close-btn" onClick={(e) => {
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>
+            <span>×</span>
+          </div>
+          <a href="#home" className="nav-link" onClick={() => {
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>Inicio</a>
+          <a href="#about" className="nav-link" onClick={() => {
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>Nosotros</a>
+          <a href="#repertoire" className="nav-link" onClick={() => {
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>Música</a>
+          <a href="#gallery" className="nav-link" onClick={() => {
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>Galería</a>
+          <a href="#events" className="nav-link" onClick={() => {
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>Eventos</a>
+          <a href="#members" className="nav-link" onClick={() => {
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>Banda</a>
+          <button className="nav-contact-btn" onClick={() => {
+            window.location.href = '#contact';
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            navRight.classList.remove('nav-active');
+            burger.classList.remove('active');
+          }}>Contáctanos</button>
         </div>
         <div className="nav-burger" onClick={(e) => {
           const navRight = document.querySelector('.nav-right');
