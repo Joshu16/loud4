@@ -28,7 +28,17 @@ const Header = () => {
           <a href="#gallery" className="nav-link">Galería</a>
           <a href="#events" className="nav-link">Eventos</a>
           <a href="#members" className="nav-link">Banda</a>
-          <a href="#contact" className="nav-link">Contacto</a>
+          <button className="nav-contact-btn" onClick={() => window.location.href = '#contact'}>Contáctanos</button>
+        </div>
+        <div className="nav-burger" onClick={(e) => {
+          const navRight = document.querySelector('.nav-right');
+          const burger = e.currentTarget;
+          navRight.classList.toggle('nav-active');
+          burger.classList.toggle('active');
+        }}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </nav>
 

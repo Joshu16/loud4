@@ -33,8 +33,8 @@ const Navbar = () => {
             <li><a href="#repertoire" onClick={toggleMenu}>Music</a></li>
             <li><a href="#gallery" onClick={toggleMenu}>EPK</a></li>
             <li><a href="#events" onClick={toggleMenu}>Events</a></li>
-            <li><a href="#contact" onClick={toggleMenu}>Contact us</a></li>
           </ul>
+          <button className="navbar-contact-btn" onClick={() => { toggleMenu(); window.location.href = '#contact'; }}>Contact us</button>
           <a href="#contact" className="navbar-cta-btn" onClick={toggleMenu}>Contratar</a>
         </div>
         <div className={`navbar-burger ${isOpen ? 'is-active' : ''}`} onClick={toggleMenu}>

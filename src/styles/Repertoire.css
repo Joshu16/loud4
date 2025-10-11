@@ -44,8 +44,11 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-  width: 45px;
-  height: 45px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .custom-prev-btn:hover,
@@ -55,30 +58,27 @@
 
 .custom-prev-btn:after,
 .custom-next-btn:after {
-  font-size: 14px;
-  font-weight: 900;
+  font-size: 24px;
+  font-weight: 300;
   color: white;
   content: '';
+  line-height: 1;
 }
 
 .custom-prev-btn:after {
-  font-size: 14px;
-  font-weight: bold;
-  content: '<';
+  content: '‹';
 }
 
 .custom-next-btn:after {
-  font-size: 14px;
-  font-weight: bold;
-  content: '>';
+  content: '›';
 }
 
 .custom-prev-btn {
-  left: 5px;
+  left: 0px;
 }
 
 .custom-next-btn {
-  right: 5px;
+  right: 0px;
 }
 
 /* Swiper Pagination - Mejorado */
@@ -217,7 +217,7 @@
   
   .custom-prev-btn:after,
   .custom-next-btn:after {
-    font-size: 12px;
+    font-size: 20px;
   }
 }
 
@@ -256,7 +256,7 @@
   
   .custom-prev-btn:after,
   .custom-next-btn:after {
-    font-size: 10px;
+    font-size: 18px;
   }
 }
 
@@ -295,6 +295,6 @@
   
   .custom-prev-btn:after,
   .custom-next-btn:after {
-    font-size: 8px;
+    font-size: 16px;
   }
 }

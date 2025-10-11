@@ -8,43 +8,59 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          <div className="footer-logo">
-            <img src={Loud4} alt="Loud4" className="logo" />
-            <h3 className="band-name">Loud4</h3>
+          <div className="footer-column">
+            <h4 className="column-title">Loud4</h4>
+            <ul className="column-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">Nosotros</a></li>
+              <li><a href="#repertoire">Música</a></li>
+              <li><a href="#gallery">Galería</a></li>
+            </ul>
           </div>
           
-          <nav className="footer-nav">
-            <ul className="nav-menu">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#shows">Shows</a></li>
-              <li><a href="#videos">Videos</a></li>
-              <li><a href="#contact">Contacto</a></li>
+          <div className="footer-column">
+            <h4 className="column-title">Servicios</h4>
+            <ul className="column-links">
+              <li><a href="#events">Eventos</a></li>
+              <li><a href="#gallery">Lugares</a></li>
+              <li><a href="#gallery">Fotos</a></li>
+              <li><a href="#gallery">Videos</a></li>
             </ul>
-          </nav>
+          </div>
           
-          <div className="footer-cta">
-            <h2 className="cta-title">Reviví el rock. Contratá a Loud4.</h2>
-            <div className="contact-links">
-              <a href="https://wa.me/5491112345678" className="contact-link whatsapp">
-                <WhatsAppIcon size={20} />
-                WhatsApp
-              </a>
-              <a href="mailto:info@loud4.com" className="contact-link email">
-                <EmailIcon size={20} />
-                Email
-              </a>
-              <a href="#" className="contact-link instagram">
-                <InstagramIcon size={20} />
-                Instagram
-              </a>
-            </div>
+          <div className="footer-column">
+            <h4 className="column-title">Contacto</h4>
+            <ul className="column-links">
+              <li><a href="#contact">Formulario</a></li>
+              <li><a href="https://wa.me/5491112345678">WhatsApp</a></li>
+              <li><a href="#members">Banda</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+          
+          <div className="footer-column footer-cta-column">
+            <h2 className="cta-title">Reviví el rock.<br />Contratá a Loud4.</h2>
+            <a href="#contact" className="contact-cta-link">
+              Contáctanos para tu evento
+            </a>
           </div>
         </div>
         
         <div className="footer-bottom">
+          <div className="social-links">
+            <a href="#" className="social-link" aria-label="Instagram">
+              <InstagramIcon size={20} />
+            </a>
+            <a href="#" className="social-link" aria-label="Facebook">
+              <FacebookIcon size={20} />
+            </a>
+            <a href="#" className="social-link" aria-label="YouTube">
+              <YouTubeIcon size={20} />
+            </a>
+          </div>
+          
           <div className="footer-info">
             <p>&copy; 2025 Loud4. Todos los derechos reservados.</p>
-            <p>Banda de rock cover profesional - Costa Rica</p>
           </div>
           
           <div className="footer-developer">
@@ -64,21 +80,6 @@ const Footer = () => {
                 BySaborío Digital Solutions
               </a>
             </p>
-          </div>
-          
-          <div className="social-links">
-            <a href="#" className="social-link" aria-label="Instagram">
-              <InstagramIcon size={20} />
-            </a>
-            <a href="#" className="social-link" aria-label="Facebook">
-              <FacebookIcon size={20} />
-            </a>
-            <a href="#" className="social-link" aria-label="YouTube">
-              <YouTubeIcon size={20} />
-            </a>
-            <a href="https://wa.me/5491112345678" className="social-link" aria-label="WhatsApp">
-              <WhatsAppIcon size={20} />
-            </a>
           </div>
         </div>
       </div>

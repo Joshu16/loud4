@@ -65,9 +65,9 @@ const FAQ = () => {
         </div>
         
         <div className="faq-footer">
-          <p>¿Tenés otra duda? Escribinos por WhatsApp</p>
-          <a href="https://wa.me/5491112345678" className="btn btn-primary">
-            Contactar por WhatsApp
+          <p>¿Tenés otra duda? Contáctanos</p>
+          <a href="#contact" className="btn btn-primary">
+            Contáctanos aquí
           </a>
         </div>
       </div>

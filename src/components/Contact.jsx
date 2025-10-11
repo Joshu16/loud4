@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { WhatsAppIcon, EmailIcon, InstagramIcon } from './Icons';
 import '../styles/Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     eventType: '',
-    date: '',
+    location: '',
     message: ''
   });
 
@@ -75,13 +74,14 @@ const Contact = () => {
               </div>
               
               <div className="form-group">
-                <label htmlFor="date">Fecha del evento</label>
+                <label htmlFor="location">Ubicación del evento</label>
                 <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  value={formData.date}
+                  type="text"
+                  id="location"
+                  name="location"
+                  value={formData.location}
                   onChange={handleChange}
+                  placeholder="Ciudad, dirección o lugar específico"
                 />
               </div>
               
@@ -94,7 +94,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="4"
-                  placeholder="Cuéntanos sobre tu evento, ubicación, cantidad de invitados, etc."
+                  placeholder="Cuéntanos tus fechas, horario, cantidad de invitados, etc."
                 ></textarea>
               </div>
               
@@ -102,59 +102,6 @@ const Contact = () => {
                 Enviar solicitud
               </button>
             </form>
-          </div>
-          
-          <div className="contact-info">
-            <div className="contact-methods">
-              <h3>Otras formas de contacto</h3>
-              
-              <div className="contact-method">
-                <div className="method-icon">
-                  <WhatsAppIcon size={24} />
-                </div>
-                <div className="method-content">
-                  <h4>WhatsApp</h4>
-                  <p>+54 9 11 1234-5678</p>
-                  <a href="https://wa.me/5491112345678" className="contact-link">
-                    Escribir por WhatsApp
-                  </a>
-                </div>
-              </div>
-              
-              <div className="contact-method">
-                <div className="method-icon">
-                  <EmailIcon size={24} />
-                </div>
-                <div className="method-content">
-                  <h4>Correo</h4>
-                  <p>info@loud4.com</p>
-                  <a href="mailto:info@loud4.com" className="contact-link">
-                    Enviar email
-                  </a>
-                </div>
-              </div>
-              
-              <div className="contact-method">
-                <div className="method-icon">
-                  <InstagramIcon size={24} />
-                </div>
-                <div className="method-content">
-                  <h4>Redes Sociales</h4>
-                  <p>@loud4band</p>
-                  <a href="#" className="contact-link">
-                    Seguir en Instagram
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            <div className="availability-cta">
-              <h3>Consultá disponibilidad</h3>
-              <p>¿Necesitás saber si estamos disponibles para una fecha específica?</p>
-              <a href="https://wa.me/5491112345678" className="btn btn-secondary">
-                Consultar disponibilidad
-              </a>
-            </div>
           </div>
         </div>
       </div>
