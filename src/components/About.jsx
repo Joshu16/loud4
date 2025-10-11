@@ -3,7 +3,7 @@ import '../styles/About.css';
 
 const About = () => {
   return (
-    <section className="band-section">
+    <section id="about" className="band-section">
       <div className="container">
         <h2 className="section-title">Sobre la banda</h2>
         <p className="band-description">

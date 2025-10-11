@@ -1,0 +1,168 @@
+/* Band Members Section */
+.band-members-section {
+  background: #0f0f0f;
+  color: white;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.member-card {
+  padding: 0;
+  overflow: hidden;
+  background: #2a2a2a;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+
+.member-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+.member-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(220, 38, 38, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.instrument-badge {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.instrument-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #dc2626;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.member-info {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.member-name {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.member-role {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: #dc2626;
+}
+
+.member-personality {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.show-more-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.show-more-btn {
+  background: transparent;
+  border: 2px solid rgba(220, 38, 38, 0.5);
+  color: #dc2626;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+}
+
+.show-more-btn:hover {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .members-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .band-members-section {
+    padding: 2rem 0;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .member-image {
+    height: 200px;
+  }
+  
+  .member-info {
+    padding: 1.25rem;
+  }
+  
+  .instrument-text {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .member-image {
+    height: 180px;
+  }
+  
+  .member-info {
+    padding: 1rem;
+  }
+  
+  .member-name {
+    font-size: 1.25rem;
+  }
+  
+  .member-role {
+    font-size: 0.85rem;
+  }
+  
+  .member-personality {
+    font-size: 0.85rem;
+  }
+}

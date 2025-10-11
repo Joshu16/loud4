@@ -61,7 +61,7 @@ const Repertoire = () => {
   ];
 
   return (
-    <section className="repertoire-section">
+    <section id="repertoire" className="repertoire-section">
       <div className="container">
         <h2 className="section-title">Nuestro repertorio</h2>
         <div className="swiper-container">

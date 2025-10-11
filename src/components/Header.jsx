@@ -3,18 +3,20 @@ import '../styles/Header.css';
 
 const Header = () => {
   return (
-    <header className="hero-section">
+    <header id="home" className="hero-section">
       {/* Header Navigation */}
       <nav className="navbar">
         <div className="nav-left">
           <h1 className="band-name">LOUD4</h1>
         </div>
         <div className="nav-right">
-          <a href="#home" className="nav-link">Home</a>
-          <a href="#music" className="nav-link">Music</a>
-          <a href="#epk" className="nav-link">EPK</a>
-          <a href="#merch" className="nav-link">Merch</a>
-          <a href="#contact" className="nav-link">Contact us</a>
+          <a href="#home" className="nav-link">Inicio</a>
+          <a href="#about" className="nav-link">Nosotros</a>
+          <a href="#repertoire" className="nav-link">Música</a>
+          <a href="#gallery" className="nav-link">Galería</a>
+          <a href="#events" className="nav-link">Eventos</a>
+          <a href="#members" className="nav-link">Banda</a>
+          <a href="#contact" className="nav-link">Contacto</a>
         </div>
       </nav>
 
