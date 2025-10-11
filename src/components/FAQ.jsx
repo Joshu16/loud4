@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import MotionAnimation from './MotionAnimation';
 import '../styles/FAQ.css';
 
-const FAQ = () => {
+const FAQ = ({ initialAnimationComplete }) => {
   const [openItem, setOpenItem] = useState(null);
 
   const faqItems = [
@@ -39,37 +40,43 @@ const FAQ = () => {
   return (
     <section className="faq-section">
       <div className="container">
-        <div className="faq-header">
-          <h2 className="section-title">Preguntas frecuentes</h2>
-          <p className="section-subtitle">Resolvemos las dudas más comunes</p>
-        </div>
+        <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete} aggressive={true}>
+          <div className="faq-header">
+            <h2 className="section-title">Preguntas frecuentes</h2>
+            <p className="section-subtitle">Resolvemos las dudas más comunes</p>
+          </div>
+        </MotionAnimation>
         
         <div className="faq-container">
-          {faqItems.map((item) => (
-            <div key={item.id} className={`faq-item ${openItem === item.id ? 'open' : ''}`}>
-              <button 
-                className="faq-question"
-                onClick={() => toggleItem(item.id)}
-              >
-                <span className="question-text">{item.question}</span>
-                <span className="toggle-icon"></span>
-              </button>
-              
-              <div className="faq-answer">
-                <div className="answer-content">
-                  <p>{item.answer}</p>
+          {faqItems.map((item, index) => (
+            <MotionAnimation key={item.id} animation="fadeInUp" delay={400 + (index * 100)} initialAnimationComplete={initialAnimationComplete} aggressive={true}>
+              <div className={`faq-item ${openItem === item.id ? 'open' : ''}`}>
+                <button 
+                  className="faq-question"
+                  onClick={() => toggleItem(item.id)}
+                >
+                  <span className="question-text">{item.question}</span>
+                  <span className="toggle-icon"></span>
+                </button>
+                
+                <div className="faq-answer">
+                  <div className="answer-content">
+                    <p>{item.answer}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </MotionAnimation>
           ))}
         </div>
         
-        <div className="faq-footer">
-          <p>¿Tenés otra duda? Contáctanos</p>
-          <a href="#contact" className="btn btn-primary">
-            Contáctanos aquí
-          </a>
-        </div>
+        <MotionAnimation animation="fadeInUp" delay={800} initialAnimationComplete={initialAnimationComplete} aggressive={true}>
+          <div className="faq-footer">
+            <p>¿Tenés otra duda? Contáctanos</p>
+            <a href="#contact" className="btn btn-primary">
+              Contáctanos aquí
+            </a>
+          </div>
+        </MotionAnimation>
       </div>
     </section>
   );

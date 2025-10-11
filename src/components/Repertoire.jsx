@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import MotionAnimation from './MotionAnimation';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '../styles/Repertoire.css';
 import Loud4 from '../assets/images/Loud4.webp';   
 
-const Repertoire = () => {
+const Repertoire = ({ initialAnimationComplete }) => {
   const swiperRef = useRef(null);
 
   const goToPrev = () => {
@@ -63,57 +64,63 @@ const Repertoire = () => {
   return (
     <section id="repertoire" className="repertoire-section">
       <div className="container">
-        <h2 className="section-title">Nuestro repertorio</h2>
-        <div className="swiper-container">
-          <button className="custom-prev-btn" onClick={goToPrev}></button>
-          <button className="custom-next-btn" onClick={goToNext}></button>
-          <Swiper
-            ref={swiperRef}
-            modules={[Pagination]}
-            spaceBetween={30}
-            slidesPerView={3}
-            centeredSlides={true}
-            loop={true}
-            loopFillGroupWithBlank={true}
-            navigation={false}
-            pagination={{
-              clickable: true,
-            }}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                centeredSlides: true,
-                loop: true,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 25,
-                centeredSlides: true,
-                loop: true,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-                centeredSlides: true,
-                loop: true,
-              },
-            }}
-            className="repertoire-swiper"
-          >
-            {repertoireData.map((item) => (
-              <SwiperSlide key={item.id}>
-                <div className="repertoire-card">
-                  <div className="card-image">
-                    <img src={item.image} alt={item.alt} />
-                  </div>
-                  <h3 className="card-title">{item.title}</h3>
-                  <p className="card-description">{item.description}</p>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
+          <h2 className="section-title">Nuestro repertorio</h2>
+        </MotionAnimation>
+        <MotionAnimation animation="fadeInUp" delay={400} initialAnimationComplete={initialAnimationComplete}>
+          <div className="swiper-container">
+            <button className="custom-prev-btn" onClick={goToPrev}></button>
+            <button className="custom-next-btn" onClick={goToNext}></button>
+            <Swiper
+              ref={swiperRef}
+              modules={[Pagination]}
+              spaceBetween={30}
+              slidesPerView={3}
+              centeredSlides={true}
+              loop={true}
+              loopFillGroupWithBlank={true}
+              navigation={false}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                  centeredSlides: true,
+                  loop: true,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 25,
+                  centeredSlides: true,
+                  loop: true,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                  centeredSlides: true,
+                  loop: true,
+                },
+              }}
+              className="repertoire-swiper"
+            >
+              {repertoireData.map((item, index) => (
+                <SwiperSlide key={item.id}>
+                  <MotionAnimation animation="scaleIn" delay={600 + (index * 100)} initialAnimationComplete={initialAnimationComplete}>
+                    <div className="repertoire-card">
+                      <div className="card-image">
+                        <img src={item.image} alt={item.alt} />
+                      </div>
+                      <h3 className="card-title">{item.title}</h3>
+                      <p className="card-description">{item.description}</p>
+                    </div>
+                  </MotionAnimation>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </MotionAnimation>
       </div>
     </section>
   );

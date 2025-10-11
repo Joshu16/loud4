@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import MotionAnimation from './MotionAnimation';
 import '../styles/Gallery.css';
 
-const Gallery = () => {
+const Gallery = ({ initialAnimationComplete }) => {
   const [activeTab, setActiveTab] = useState('photos');
   const [showAllPhotos, setShowAllPhotos] = useState(false);
 
@@ -42,68 +43,80 @@ const Gallery = () => {
   return (
     <section id="gallery" className="gallery-section section">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Así se vive un show con Loud4</h2>
-          <div className="tab-switcher">
-            <button 
-              className={`tab-btn ${activeTab === 'photos' ? 'active' : ''}`}
-              onClick={() => setActiveTab('photos')}
-            >
-              Fotos
-            </button>
-            <button 
-              className={`tab-btn ${activeTab === 'videos' ? 'active' : ''}`}
-              onClick={() => setActiveTab('videos')}
-            >
-              Videos
-            </button>
+        <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
+          <div className="section-header">
+            <h2 className="section-title">Así se vive un show con Loud4</h2>
+            <div className="tab-switcher">
+              <button 
+                className={`tab-btn ${activeTab === 'photos' ? 'active' : ''}`}
+                onClick={() => setActiveTab('photos')}
+              >
+                Fotos
+              </button>
+              <button 
+                className={`tab-btn ${activeTab === 'videos' ? 'active' : ''}`}
+                onClick={() => setActiveTab('videos')}
+              >
+                Videos
+              </button>
+            </div>
           </div>
-        </div>
+        </MotionAnimation>
 
         {activeTab === 'photos' && (
-          <div className="photos-container">
-            <div className="photos-grid">
-              {displayedPhotos.map((photo) => (
-                <div key={photo.id} className={`photo-item ${photo.category}`}>
-                  <img src={photo.src} alt={photo.alt} />
-                  <div className="photo-overlay">
-                    <span className="photo-title">{photo.alt}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            {photos.length > 4 && (
-              <div className="show-more-container">
-                <button 
-                  className="show-more-btn"
-                  onClick={() => setShowAllPhotos(!showAllPhotos)}
-                >
-                  {showAllPhotos ? 'Ver menos fotos' : 'Ver más fotos'}
-                </button>
+          <MotionAnimation animation="fadeInUp" delay={400} initialAnimationComplete={initialAnimationComplete}>
+            <div className="photos-container">
+              <div className="photos-grid">
+                {displayedPhotos.map((photo, index) => (
+                  <MotionAnimation key={photo.id} animation="scaleIn" delay={600 + (index * 100)} initialAnimationComplete={initialAnimationComplete}>
+                    <div className={`photo-item ${photo.category}`}>
+                      <img src={photo.src} alt={photo.alt} />
+                      <div className="photo-overlay">
+                        <span className="photo-title">{photo.alt}</span>
+                      </div>
+                    </div>
+                  </MotionAnimation>
+                ))}
               </div>
-            )}
-          </div>
+              {photos.length > 4 && (
+                <MotionAnimation animation="fadeInUp" delay={800} initialAnimationComplete={initialAnimationComplete}>
+                  <div className="show-more-container">
+                    <button 
+                      className="show-more-btn"
+                      onClick={() => setShowAllPhotos(!showAllPhotos)}
+                    >
+                      {showAllPhotos ? 'Ver menos fotos' : 'Ver más fotos'}
+                    </button>
+                  </div>
+                </MotionAnimation>
+              )}
+            </div>
+          </MotionAnimation>
         )}
 
         {activeTab === 'videos' && (
-          <div className="videos-grid">
-            {videos.map((video) => (
-              <div key={video.id} className="video-item" onClick={() => openVideoModal(video)}>
-                <div className="video-thumbnail">
-                  <img src={video.thumbnail} alt={video.title} />
-                  <div className="play-overlay">
-                    <div className="play-button">
-                      <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
+          <MotionAnimation animation="fadeInUp" delay={400} initialAnimationComplete={initialAnimationComplete}>
+            <div className="videos-grid">
+              {videos.map((video, index) => (
+                <MotionAnimation key={video.id} animation="scaleIn" delay={600 + (index * 150)} initialAnimationComplete={initialAnimationComplete}>
+                  <div className="video-item" onClick={() => openVideoModal(video)}>
+                    <div className="video-thumbnail">
+                      <img src={video.thumbnail} alt={video.title} />
+                      <div className="play-overlay">
+                        <div className="play-button">
+                          <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="video-duration">{video.duration}</div>
                     </div>
+                    <h3 className="video-title">{video.title}</h3>
                   </div>
-                  <div className="video-duration">{video.duration}</div>
-                </div>
-                <h3 className="video-title">{video.title}</h3>
-              </div>
-            ))}
-          </div>
+                </MotionAnimation>
+              ))}
+            </div>
+          </MotionAnimation>
         )}
       </div>
 

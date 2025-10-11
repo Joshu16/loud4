@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import MotionAnimation from './MotionAnimation';
 import '../styles/Header.css';
 
-const Header = () => {
+const Header = ({ initialAnimationComplete }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const Header = () => {
 
   return (
     <header id="home" className="hero-section">
-      {/* Header Navigation */}
+      {/* Header Navigation - Siempre visible */}
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-left">
           <h1 className="band-name">LOUD4</h1>
@@ -44,16 +45,22 @@ const Header = () => {
 
       {/* Main CTA Section */}
       <div className="main-cta">
-        <div className="cta-text">Anima Tus Eventos Con Clásicos Del Rock</div>
-        <div className="cta-subtitle">Cobertura musical profesional para bodas, eventos corporativos y celebraciones especiales</div>
-        <div className="cta-buttons">
-          <button className="cta-button primary">
-            RESERVAR EVENTO
-          </button>
-          <button className="cta-button secondary">
-            VER SERVICIOS
-          </button>
-        </div>
+        <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete} hero={true}>
+          <div className="cta-text">Anima Tus Eventos Con Clásicos Del Rock</div>
+        </MotionAnimation>
+        <MotionAnimation animation="fadeInUp" delay={300} initialAnimationComplete={initialAnimationComplete} hero={true}>
+          <div className="cta-subtitle">Cobertura musical profesional para bodas, eventos corporativos y celebraciones especiales</div>
+        </MotionAnimation>
+        <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete} hero={true}>
+          <div className="cta-buttons">
+            <button className="cta-button primary">
+              RESERVAR EVENTO
+            </button>
+            <button className="cta-button secondary">
+              VER SERVICIOS
+            </button>
+          </div>
+        </MotionAnimation>
       </div>
     </header>
   );

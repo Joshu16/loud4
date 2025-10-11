@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import MotionAnimation from './MotionAnimation';
 import '../styles/RecentEvents.css';
 
-const RecentEvents = () => {
+const RecentEvents = ({ initialAnimationComplete }) => {
   const [showAll, setShowAll] = useState(false);
 
   const events = [
@@ -75,40 +76,47 @@ const RecentEvents = () => {
   return (
     <section id="events" className="recent-events-section section">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Ya hemos encendido la noche en estos lugares</h2>
-        </div>
+        <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
+          <div className="section-header">
+            <h2 className="section-title">Ya hemos encendido la noche en estos lugares</h2>
+          </div>
+        </MotionAnimation>
         
         <div className="events-grid grid-3">
-          {displayedEvents.map((event) => (
-            <div key={event.id} className="event-card card">
-              <div className="event-image">
-                <img src={event.image} alt={event.venue} />
-                <div className="event-overlay">
-                  <div className="event-info">
-                    <h3 className="venue-name">{event.venue}</h3>
-                    <p className="event-location">{event.location}</p>
+          {displayedEvents.map((event, index) => (
+            <MotionAnimation key={event.id} animation="scaleIn" delay={400 + (index * 80)} initialAnimationComplete={initialAnimationComplete}>
+              <div className="event-card card">
+                <div className="card-content">
+                  <div className="event-image">
+                    <img src={event.image} alt={event.venue} />
+                    <div className="event-overlay">
+                      <div className="event-info">
+                        <h3 className="venue-name">{event.venue}</h3>
+                        <p className="event-location">{event.location}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="event-details">
+                    <h3 className="card-title">{event.venue}</h3>
+                    <p className="card-description">{event.description}</p>
                   </div>
                 </div>
               </div>
-              <div className="event-details">
-                <h3 className="card-title">{event.venue}</h3>
-                <div className="event-meta">
-                </div>
-              </div>
-            </div>
+            </MotionAnimation>
           ))}
         </div>
         
         {events.length > 3 && (
-          <div className="show-more-container">
-            <button 
-              className="show-more-btn"
-              onClick={() => setShowAll(!showAll)}
-            >
-              {showAll ? 'Ver menos' : 'Ver más eventos'}
-            </button>
-          </div>
+          <MotionAnimation animation="fadeInUp" delay={800} initialAnimationComplete={initialAnimationComplete}>
+            <div className="show-more-container">
+              <button 
+                className="show-more-btn"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? 'Ver menos' : 'Ver más eventos'}
+              </button>
+            </div>
+          </MotionAnimation>
         )}
       </div>
     </section>

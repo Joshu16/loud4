@@ -46,42 +46,42 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="footer-bottom">
-          <div className="social-links">
-            <a href="#" className="social-link" aria-label="Instagram">
-              <InstagramIcon size={20} />
-            </a>
-            <a href="#" className="social-link" aria-label="Facebook">
-              <FacebookIcon size={20} />
-            </a>
-            <a href="#" className="social-link" aria-label="YouTube">
-              <YouTubeIcon size={20} />
-            </a>
-          </div>
-          
-          <div className="footer-info">
-            <p>&copy; 2025 Loud4. Todos los derechos reservados.</p>
-          </div>
-          
-          <div className="footer-developer">
-            <p>
-              Desarrollado por{' '}
-              <a 
-                href="https://bysaborio.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="developer-link"
-              >
-                <img 
-                  src="https://bysaborio.vercel.app/assets/Logo%20PNG-BvnbT45m.png" 
-                  alt="BySaborío Digital Solutions" 
-                  className="developer-logo"
-                />
-                BySaborío Digital Solutions
+          <div className="footer-bottom">
+            <div className="social-links">
+              <a href="#" className="social-link" aria-label="Instagram">
+                <InstagramIcon size={20} />
               </a>
-            </p>
+              <a href="#" className="social-link" aria-label="Facebook">
+                <FacebookIcon size={20} />
+              </a>
+              <a href="#" className="social-link" aria-label="YouTube">
+                <YouTubeIcon size={20} />
+              </a>
+            </div>
+            
+            <div className="footer-info">
+              <p>&copy; 2025 Loud4. Todos los derechos reservados.</p>
+            </div>
+            
+            <div className="footer-developer">
+              <p>
+                Desarrollado por{' '}
+                <a 
+                  href="https://bysaborio.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="developer-link"
+                >
+                  <img 
+                    src="https://bysaborio.vercel.app/assets/Logo%20PNG-BvnbT45m.png" 
+                    alt="BySaborío Digital Solutions" 
+                    className="developer-logo"
+                  />
+                  BySaborío Digital Solutions
+                </a>
+              </p>
+            </div>
           </div>
-        </div>
       </div>
     </footer>
   );
