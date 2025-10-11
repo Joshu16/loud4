@@ -46,17 +46,20 @@ const Header = ({ initialAnimationComplete }) => {
       {/* Main CTA Section */}
       <div className="main-cta">
         <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete} hero={true}>
-          <div className="cta-text">Anima Tus Eventos Con Clásicos Del Rock</div>
+          <div className="cta-text">
+            <div className="cta-main">Anima tus eventos</div>
+            <div className="cta-sub">Con clásicos del rock</div>
+          </div>
         </MotionAnimation>
         <MotionAnimation animation="fadeInUp" delay={300} initialAnimationComplete={initialAnimationComplete} hero={true}>
           <div className="cta-subtitle">Cobertura musical profesional para bodas, eventos corporativos y celebraciones especiales</div>
         </MotionAnimation>
         <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete} hero={true}>
           <div className="cta-buttons">
-            <button className="cta-button primary">
+            <button className="cta-button primary" onClick={() => window.location.href = '#contact'}>
               RESERVAR EVENTO
             </button>
-            <button className="cta-button secondary">
+            <button className="cta-button secondary" onClick={() => window.location.href = '#about'}>
               VER SERVICIOS
             </button>
           </div>

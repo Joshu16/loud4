@@ -22,9 +22,9 @@ const Footer = () => {
             <h4 className="column-title">Servicios</h4>
             <ul className="column-links">
               <li><a href="#events">Eventos</a></li>
-              <li><a href="#gallery">Lugares</a></li>
-              <li><a href="#gallery">Fotos</a></li>
-              <li><a href="#gallery">Videos</a></li>
+              <li><a href="#gallery">Galería</a></li>
+              <li><a href="#members">Banda</a></li>
+              <li><a href="#repertoire">Música</a></li>
             </ul>
           </div>
           

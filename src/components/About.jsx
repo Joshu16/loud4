@@ -23,7 +23,7 @@ const About = ({ initialAnimationComplete }) => {
           </p>
         </MotionAnimation>
         <MotionAnimation animation="fadeInUp" delay={800} initialAnimationComplete={initialAnimationComplete}>
-          <button className="btn btn-primary btn-small">Conocé al equipo</button>
+          <button className="btn btn-primary btn-small" onClick={() => window.location.href = '#members'}>Conocé al equipo</button>
         </MotionAnimation>
       </div>
     </section>
