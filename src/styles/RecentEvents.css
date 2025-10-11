@@ -13,8 +13,8 @@
 }
 
 .events-grid .event-card {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 }
 
 .section-header {
@@ -23,8 +23,8 @@
 }
 
 .event-card {
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 0;
+  margin: 0;
   overflow: hidden;
   background: #2a2a2a;
   border: 1px solid rgba(220, 38, 38, 0.2);
@@ -37,22 +37,22 @@
   position: relative;
   height: 180px;
   overflow: hidden;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
   width: 100%;
   box-sizing: border-box;
 }
 
 .event-image img {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
   display: block;
-  border: none !important;
-  outline: none !important;
+  border: none;
+  outline: none;
   box-sizing: border-box;
   position: absolute;
   top: 0;

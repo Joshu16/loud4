@@ -44,8 +44,8 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -259,8 +259,8 @@
   
   .custom-prev-btn,
   .custom-next-btn {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
   }
   
   .custom-prev-btn {
@@ -304,8 +304,8 @@
   
   .custom-prev-btn,
   .custom-next-btn {
-    width: 70px;
-    height: 70px;
+    width: 45px;
+    height: 45px;
   }
   
   .custom-prev-btn {

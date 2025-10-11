@@ -42,7 +42,7 @@
 .faq-item:hover {
   box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
   transform: none;
-  border-color: rgba(220, 38, 38, 0.2) !important;
+  border-color: rgba(220, 38, 38, 0.2);
 }
 
 .faq-item:hover:not(.open) {
@@ -89,7 +89,7 @@
 }
 
 .faq-item.open .faq-question {
-  background: none !important;
+  background: none;
   color: #dc2626;
 }
 

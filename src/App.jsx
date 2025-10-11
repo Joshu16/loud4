@@ -26,18 +26,20 @@ function App() {
     <div className="App">
       {!showMainContent && <IntroAnimation onAnimationComplete={handleAnimationComplete} />}
       {showMainContent && (
-        <div className="main-content fade-in">
+        <>
           <Header initialAnimationComplete={initialAnimationComplete} />
-          <About initialAnimationComplete={initialAnimationComplete} />
-          <Repertoire initialAnimationComplete={initialAnimationComplete} />
-          <Gallery initialAnimationComplete={initialAnimationComplete} />
-          <RecentEvents initialAnimationComplete={initialAnimationComplete} />
-          <WhyChooseUs initialAnimationComplete={initialAnimationComplete} />
-          <BandMembers initialAnimationComplete={initialAnimationComplete} />
-          <Contact initialAnimationComplete={initialAnimationComplete} />
-          <FAQ initialAnimationComplete={initialAnimationComplete} />
-          <Footer />
-        </div>
+          <div className="main-content fade-in">
+            <About initialAnimationComplete={initialAnimationComplete} />
+            <Repertoire initialAnimationComplete={initialAnimationComplete} />
+            <Gallery initialAnimationComplete={initialAnimationComplete} />
+            <RecentEvents initialAnimationComplete={initialAnimationComplete} />
+            <WhyChooseUs initialAnimationComplete={initialAnimationComplete} />
+            <BandMembers initialAnimationComplete={initialAnimationComplete} />
+            <Contact initialAnimationComplete={initialAnimationComplete} />
+            <FAQ initialAnimationComplete={initialAnimationComplete} />
+            <Footer />
+          </div>
+        </>
       )}
     </div>
   );

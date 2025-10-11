@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import MotionAnimation from './MotionAnimation';
+import React from 'react';
+import '../styles/Navbar.css';
 import '../styles/Header.css';
+import MotionAnimation from './MotionAnimation';
 
 const Header = ({ initialAnimationComplete }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header id="home" className="hero-section">
+    <>
       {/* Header Navigation - Siempre visible */}
-      <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className="navbar">
         <div className="nav-left">
           <h1 className="band-name">LOUD4</h1>
         </div>
         <div className="nav-right">
-          <div className="nav-close-btn" onClick={(e) => {
+          <div className="nav-close-btn" onClick={() => {
             const navRight = document.querySelector('.nav-right');
             const burger = document.querySelector('.nav-burger');
             navRight.classList.remove('nav-active');
@@ -87,29 +76,31 @@ const Header = ({ initialAnimationComplete }) => {
         </div>
       </nav>
 
-      {/* Main CTA Section */}
-      <div className="main-cta">
-        <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete} hero={true}>
-          <div className="cta-text">
-            <div className="cta-main">Anima tus eventos</div>
-            <div className="cta-sub">Con clásicos del rock</div>
-          </div>
-        </MotionAnimation>
-        <MotionAnimation animation="fadeInUp" delay={300} initialAnimationComplete={initialAnimationComplete} hero={true}>
-          <div className="cta-subtitle">Cobertura musical profesional para bodas, eventos corporativos y celebraciones especiales</div>
-        </MotionAnimation>
-        <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete} hero={true}>
-          <div className="cta-buttons">
-            <button className="cta-button primary" onClick={() => window.location.href = '#contact'}>
-              RESERVAR EVENTO
-            </button>
-            <button className="cta-button secondary" onClick={() => window.location.href = '#about'}>
-              VER SERVICIOS
-            </button>
-          </div>
-        </MotionAnimation>
-      </div>
-    </header>
+      <header id="home" className="hero-section">
+        {/* Main CTA Section */}
+        <div className="main-cta">
+          <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete} hero={true}>
+            <div className="cta-text">
+              <div className="cta-main">Anima tus eventos</div>
+              <div className="cta-sub">Con clásicos del rock</div>
+            </div>
+          </MotionAnimation>
+          <MotionAnimation animation="fadeInUp" delay={300} initialAnimationComplete={initialAnimationComplete} hero={true}>
+            <div className="cta-subtitle">Cobertura musical profesional para bodas, eventos corporativos y celebraciones especiales</div>
+          </MotionAnimation>
+          <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete} hero={true}>
+            <div className="cta-buttons">
+              <button className="cta-button primary" onClick={() => window.location.href = '#contact'}>
+                RESERVAR EVENTO
+              </button>
+              <button className="cta-button secondary" onClick={() => window.location.href = '#about'}>
+                VER SERVICIOS
+              </button>
+            </div>
+          </MotionAnimation>
+        </div>
+      </header>
+    </>
   );
 };
 
