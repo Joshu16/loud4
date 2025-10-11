@@ -1,0 +1,82 @@
+/* Band Section */
+.band-section {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  padding: 4rem 0;
+  position: relative;
+}
+
+.band-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.band-section .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.section-title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+}
+
+.band-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .band-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .band-section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .band-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .band-section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .band-description {
+    font-size: 0.9rem;
+  }
+}
