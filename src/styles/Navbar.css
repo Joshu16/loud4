@@ -9,6 +9,14 @@
   transition: all 0.3s ease;
 }
 
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 0;
+}
+
 .navbar .container {
   display: flex;
   justify-content: space-between;
