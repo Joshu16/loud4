@@ -52,9 +52,7 @@ const FAQ = () => {
                 onClick={() => toggleItem(item.id)}
               >
                 <span className="question-text">{item.question}</span>
-                <span className="toggle-icon">
-                  {openItem === item.id ? '−' : '+'}
-                </span>
+                <span className="toggle-icon"></span>
               </button>
               
               <div className="faq-answer">

@@ -4,16 +4,32 @@
   color: white;
 }
 
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.events-grid .event-card {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 2.5rem;
 }
 
 .event-card {
-  padding: 0;
+  padding: 0 !important;
+  margin: 0 !important;
   overflow: hidden;
   background: #2a2a2a;
   border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 
@@ -21,13 +37,26 @@
   position: relative;
   height: 180px;
   overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .event-image img {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
   transition: transform 0.3s ease;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+  border: none !important;
+  outline: none !important;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 
@@ -58,31 +87,20 @@
   color: white;
 }
 
-.event-type {
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
-  color: #fbbf24;
-}
-
-.event-date {
-  font-size: 0.8rem;
-  margin-bottom: 0.25rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
 .event-location {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.7);
 }
 
 .event-details {
-  padding: 1.25rem;
+  padding: 0.75rem;
+  text-align: center;
 }
 
 .card-title {
   margin-bottom: 0.6rem;
   color: white;
+  text-align: center;
 }
 
 .card-description {
@@ -90,31 +108,11 @@
   margin-bottom: 1rem;
   line-height: 1.5;
   font-size: 0.9rem;
+  text-align: center;
 }
 
 .event-meta {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.event-type-badge {
-  background: #dc2626;
-  color: white;
-  padding: 0.3rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.event-date-badge {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  padding: 0.3rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: none;
 }
 
 .show-more-container {

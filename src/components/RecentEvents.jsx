@@ -8,56 +8,65 @@ const RecentEvents = () => {
     {
       id: 1,
       venue: 'Santa Ana Country Club',
-      eventType: 'Evento Privado',
-      date: 'Diciembre 2024',
-      description: 'Evento privado',
-      image: '/api/placeholder/300/200',
+      description: 'Lugar de eventos exclusivos',
+      image: 'https://santaanacountryclubcr.com/wp-content/uploads/2019/07/img_troon.jpg',
       location: 'Santa Ana'
     },
     {
       id: 2,
       venue: 'El Chinamo',
-      eventType: 'Show Público',
-      date: 'Noviembre 2024',
-      description: 'Concierto público',
-      image: '/api/placeholder/300/200',
+      description: 'Ambiente musical único',
+      image: 'https://s2.dmcdn.net/v/MmXFh1QAgR-fxgqGT/x1080',
       location: 'San José'
     },
     {
       id: 3,
       venue: 'Jazz Cafe',
-      eventType: 'Evento Corporativo',
-      date: 'Octubre 2024',
-      description: 'Evento corporativo',
-      image: '/api/placeholder/300/200',
+      description: 'Café con música en vivo',
+      image: 'https://lh3.googleusercontent.com/p/AF1QipP_RLJNqSw1Znw2kv1ZrzytylMObP23l_zOvRVD=s680-w680-h510-rw',
       location: 'San José'
     },
     {
       id: 4,
       venue: 'Hard Rock Cafe',
-      eventType: 'Fiesta de Fin de Año',
-      date: 'Diciembre 2024',
-      description: 'Fiesta de fin de año',
-      image: '/api/placeholder/300/200',
+      description: 'Rock y entretenimiento',
+      image: 'https://www.nacion.com/resizer/v2/HDXI375R7ZBKXP5G6MWOUBU7SY.jpg?smart=true&auth=87b84afcfcac25ede3653b87e2a99fb713f77c64157ca0b8387ae0037e9b7c99&width=4000&height=2667',
       location: 'San José'
     },
     {
       id: 5,
       venue: 'Corridas de Toro',
-      eventType: 'Festival',
-      date: 'Septiembre 2024',
-      description: 'Festival de música',
-      image: '/api/placeholder/300/200',
+      description: 'Festival de música tradicional',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDet-5TOVla1zwh0xOZkaZPpMrTgwcUPeFVA&s',
       location: 'San José'
     },
     {
       id: 6,
       venue: 'Mundo Loco',
-      eventType: 'Evento Privado',
-      date: 'Agosto 2024',
-      description: 'Evento privado',
-      image: '/api/placeholder/300/200',
+      description: 'Diversión y música',
+      image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj88RyYye1qE2CkO0GSiqOQG1hT-1HAd_vjdFgZiwvu1LW7Ick44zeNDSAVTcyzbAzQdoU6uiY-iGWZcMW0tjGHU0aJaRHZhQ4G6qdwOIqfP_gi96wXJJ3EWHJm4sRoH0HKBhUxlhwjbBHe/s1600/www.historypin.jpg',
       location: 'San José'
+    },
+    {
+      id: 7,
+      venue: 'Bar Cosmos',
+      description: 'Noches de música en vivo',
+      image: 'https://lh3.googleusercontent.com/p/AF1QipP1g006pJuIIG6Nsi3ugEp2z85My9CiRRjEuUY9=s680-w680-h510-rw',
+      location: 'San José'
+    },
+    {
+      id: 8,
+      venue: 'Bar The Whiskey',
+      description: 'Ambiente nocturno premium',
+      image: 'https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqvV4yEbD2leMNlYxCn1nMPschHQDwHT5F35Oz8KgasgZ92tfMs_2tHlATTcXKOCzfwybnz3_WEdQOK5_11VoqSmncgX7YcQ1JUiACvCdwz0_L8d2QG-UIm_gy1aY3gHYbjdEC6hCqEru-1=s680-w680-h510-rw',
+      location: 'San José'
+    },
+    {
+      id: 9,
+      venue: 'Fiestas Privadas',
+      description: 'Contrataciones para eventos especiales',
+      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      location: 'Costa Rica'
     }
   ];
 
@@ -78,18 +87,13 @@ const RecentEvents = () => {
                 <div className="event-overlay">
                   <div className="event-info">
                     <h3 className="venue-name">{event.venue}</h3>
-                    <p className="event-type">{event.eventType}</p>
-                    <p className="event-date">{event.date}</p>
                     <p className="event-location">{event.location}</p>
                   </div>
                 </div>
               </div>
               <div className="event-details">
                 <h3 className="card-title">{event.venue}</h3>
-                <p className="card-description">{event.description}</p>
                 <div className="event-meta">
-                  <span className="event-type-badge">{event.eventType}</span>
-                  <span className="event-date-badge">{event.date}</span>
                 </div>
               </div>
             </div>

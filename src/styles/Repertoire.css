@@ -107,7 +107,7 @@
   border: 2px solid rgba(220, 38, 38, 0.2);
   border-radius: 12px;
   padding: 0;
-  height: 450px;
+  height: 320px;
   width: 85%;
   text-align: center;
   transition: all 0.3s ease;
@@ -143,7 +143,7 @@
 
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 160px;
   overflow: hidden;
   position: relative;
 }
@@ -163,35 +163,44 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 1.2rem;
-  margin: 1rem 1rem 0.5rem 1rem;
+  font-size: 1.1rem;
+  margin: 0.75rem 1rem 0.5rem 1rem;
   position: relative;
   z-index: 2;
+  line-height: 1.3;
 }
 
 .card-description {
   color: rgba(255, 255, 255, 0.8);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 0 1rem 1rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0 1rem 0.75rem 1rem;
   position: relative;
   z-index: 2;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .repertoire-card {
+    height: 300px;
+  }
+  
   .card-image {
-    height: 180px;
+    height: 150px;
   }
   
   .card-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .card-description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   
   .swiper-container {
@@ -217,16 +226,20 @@
     padding: 3rem 0;
   }
   
+  .repertoire-card {
+    height: 280px;
+  }
+  
   .card-image {
-    height: 160px;
+    height: 140px;
   }
   
   .card-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
   .card-description {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
   
   .swiper-container {
@@ -252,8 +265,12 @@
     padding: 2rem 0;
   }
   
+  .repertoire-card {
+    height: 260px;
+  }
+  
   .card-image {
-    height: 140px;
+    height: 120px;
   }
   
   .card-title {
@@ -261,7 +278,7 @@
   }
   
   .card-description {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   
   .swiper-container {
