@@ -205,14 +205,18 @@
   }
   
   .repertoire-carousel {
-    padding: 0 2rem;
+    padding: 0 1rem;
     max-width: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
   }
   
   .repertoire-swiper {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    max-width: 100%;
   }
   
   .repertoire-card {
@@ -234,11 +238,11 @@
   }
   
   .swiper-button-prev {
-    left: -25px;
+    left: -15px;
   }
   
   .swiper-button-next {
-    right: -25px;
+    right: -15px;
   }
 }
 
@@ -248,11 +252,15 @@
   }
   
   .repertoire-carousel {
-    padding: 0 1.5rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    max-width: 100%;
   }
   
   .repertoire-swiper {
-    padding: 0 0.5rem;
+    padding: 0 0.25rem;
+    width: 100%;
+    max-width: 100%;
   }
   
   .repertoire-card {
@@ -280,10 +288,40 @@
   }
   
   .swiper-button-prev {
-    left: -20px;
+    left: -10px;
   }
   
   .swiper-button-next {
-    right: -20px;
+    right: -10px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+  .repertoire-carousel {
+    padding: 0 0.25rem;
+  }
+  
+  .repertoire-swiper {
+    padding: 0 0.1rem;
+  }
+  
+  .repertoire-card {
+    max-width: 260px;
+    height: 300px;
+  }
+  
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .swiper-button-prev {
+    left: -5px;
+  }
+  
+  .swiper-button-next {
+    right: -5px;
   }
 }
