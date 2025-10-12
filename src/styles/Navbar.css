@@ -21,6 +21,24 @@ nav.navbar {
   padding-left: 1rem;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.band-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.band-logo:hover {
+  transform: scale(1.1);
+}
+
 .nav-left .band-name {
   color: white;
   font-family: 'Montserrat', sans-serif;
@@ -28,6 +46,7 @@ nav.navbar {
   font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  margin: 0;
 }
 
 .nav-right {
@@ -135,6 +154,15 @@ nav.navbar {
   
   .nav-left {
     padding-left: 0.5rem;
+  }
+  
+  .band-logo {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .nav-left .band-name {
+    font-size: 1.3rem;
   }
   
   .nav-right {
@@ -261,6 +289,15 @@ nav.navbar {
   
   .nav-left {
     padding-left: 0;
+  }
+  
+  .band-logo {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .nav-left .band-name {
+    font-size: 1.1rem;
   }
   
   .nav-right {

@@ -24,7 +24,7 @@ const RecentEvents = ({ initialAnimationComplete }) => {
       id: 3,
       venue: 'Jazz Cafe',
       description: 'Café con música en vivo',
-      image: 'https://lh3.googleusercontent.com/p/AF1QipP_RLJNqSw1Znw2kv1ZrzytylMObP23l_zOvRVD=s680-w680-h510-rw',
+      image: 'https://lh3.googleusercontent.com/p/AF1QipMfdmRQ9IsPpcXjmVeobve2tLUk14ZT8snq5KNj=s680-w680-h510-rw',
       location: 'San José'
     },
     {

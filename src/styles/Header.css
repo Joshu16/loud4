@@ -5,7 +5,7 @@
   position: relative;
   min-height: 100vh;
   padding-top: 100px;
-  background-image: url('../assets/images/background.jpg');
+  background-image: url('../assets/images/background.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

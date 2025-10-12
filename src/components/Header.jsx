@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/Navbar.css';
 import '../styles/Header.css';
 import MotionAnimation from './MotionAnimation';
+import logoImage from '../assets/images/logo.webp';
 
 const Header = ({ initialAnimationComplete }) => {
   return (
@@ -9,7 +10,10 @@ const Header = ({ initialAnimationComplete }) => {
       {/* Header Navigation - Siempre visible */}
       <nav className="navbar">
         <div className="nav-left">
-          <h1 className="band-name">LOUD4</h1>
+          <div className="logo-container">
+            <img src={logoImage} alt="Loud4 Logo" className="band-logo" />
+            <h1 className="band-name">LOUD4</h1>
+          </div>
         </div>
         <div className="nav-right">
           <div className="nav-close-btn" onClick={() => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { WhatsAppIcon, EmailIcon, InstagramIcon, FacebookIcon, YouTubeIcon } from './Icons';
 import '../styles/Footer.css';
 import Loud4 from '../assets/images/Loud4.webp';
+import logoImage from '../assets/images/logo.webp';
 
 const Footer = () => {
   return (
@@ -48,6 +49,7 @@ const Footer = () => {
         
           <div className="footer-bottom">
             <div className="social-links">
+              <img src={logoImage} alt="Loud4 Logo" className="footer-logo" />
               <a href="#" className="social-link" aria-label="Instagram">
                 <InstagramIcon size={20} />
               </a>
