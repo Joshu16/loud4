@@ -5,7 +5,6 @@ import '../styles/Contact.css';
 const Contact = ({ initialAnimationComplete }) => {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
     eventType: '',
     location: '',
     message: ''
@@ -20,9 +19,34 @@ const Contact = ({ initialAnimationComplete }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('¡Gracias por tu consulta! Te responderemos pronto.');
+    
+    // Crear el mensaje de WhatsApp
+    const whatsappMessage = `Hola! Me interesa contratar a LOUD4 para un evento:
+
+Información del evento:
+• Nombre: ${formData.name}
+• Tipo de evento: ${formData.eventType}
+• Ubicación: ${formData.location || 'Por definir'}
+• Mensaje: ${formData.message}
+
+¡Espero su respuesta!`;
+    
+    // Crear el enlace de WhatsApp
+    const whatsappLink = `https://wa.me/50660400987?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Abrir WhatsApp
+    window.open(whatsappLink, '_blank');
+    
+    // Mostrar mensaje de confirmación
+    alert('Se abrirá WhatsApp con tu mensaje prellenado. ¡Gracias por contactarnos!');
+    
+    // Limpiar el formulario
+    setFormData({
+      name: '',
+      eventType: '',
+      location: '',
+      message: ''
+    });
   };
 
   const eventTypes = [
@@ -59,19 +83,6 @@ const Contact = ({ initialAnimationComplete }) => {
                     onChange={handleChange}
                     required
                     placeholder="Tu nombre completo"
-                  />
-                </div>
-                
-                <div className="form-group">
-                  <label htmlFor="phone">Teléfono *</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    placeholder="60400987"
                   />
                 </div>
                 
