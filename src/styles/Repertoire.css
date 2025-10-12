@@ -3,107 +3,42 @@
   background: #0f0f0f;
   padding: 4rem 0;
   position: relative;
+  overflow: visible;
 }
 
-.repertoire-section .container {
-  position: relative;
-  z-index: 2;
-}
-
-.repertoire-section .section-title {
+.repertoire-header {
   text-align: center;
-  margin-bottom: 3rem;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.repertoire-title {
   font-size: 2.5rem;
+  font-weight: 600;
   color: white;
-  text-transform: capitalize;
-  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Swiper Container */
-.swiper-container {
+.repertoire-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.repertoire-carousel-container {
   position: relative;
-  padding: 0 30px;
-  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.repertoire-swiper {
-  overflow: hidden;
-}
-
-/* Flechas personalizadas */
-.custom-prev-btn,
-.custom-next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-}
-
-.custom-prev-btn:hover,
-.custom-next-btn:hover {
-  transform: translateY(-50%) scale(1.1);
-  background: rgba(220, 38, 38, 0.8);
-}
-
-.custom-prev-btn:after,
-.custom-next-btn:after {
-  font-size: 24px;
-  font-weight: 300;
-  color: white;
-  content: '';
-  line-height: 1;
-}
-
-.custom-prev-btn:after {
-  content: '‹';
-}
-
-.custom-next-btn:after {
-  content: '›';
-}
-
-.custom-prev-btn {
-  left: 0px;
-}
-
-.custom-next-btn {
-  right: 0px;
-}
-
-/* Swiper Pagination - Mejorado */
-.swiper-pagination {
+.repertoire-carousel {
   position: relative;
-  margin-top: 3rem;
-}
-
-.swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.3);
-  opacity: 1;
-  width: 12px;
-  height: 12px;
-  margin: 0 6px;
-  transition: all 0.3s ease;
-}
-
-.swiper-pagination-bullet-active {
-  background: #dc2626;
-  transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 2rem;
+  overflow: visible;
 }
 
 .repertoire-card {
@@ -111,213 +46,244 @@
     rgba(20, 20, 20, 0.9) 0%, 
     rgba(42, 42, 42, 1) 50%, 
     rgba(20, 20, 20, 0.9) 100%);
-  border: 2px solid rgba(220, 38, 38, 0.2);
   border-radius: 12px;
-  padding: 0;
-  height: 320px;
-  width: 85%;
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  overflow: visible;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  opacity: 1;
+  transform: translateX(0);
+  height: 400px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 }
 
-.repertoire-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(220, 38, 38, 0.1);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+.repertoire-carousel.has-hover .repertoire-card {
+  transform: scale(0.95);
+  opacity: 0.7;
+  transition: all 0.3s ease;
 }
 
-.repertoire-card:hover {
-  background: linear-gradient(135deg, 
-    rgba(15, 15, 15, 0.95) 0%, 
-    rgba(45, 45, 45, 1) 50%, 
-    rgba(15, 15, 15, 0.95) 100%);
-  transform: translateY(-5px);
-  border-color: rgba(220, 38, 38, 0.6);
-  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
-}
-
-.repertoire-card:hover::before {
+.repertoire-carousel.has-hover .repertoire-card:hover {
+  transform: scale(1);
   opacity: 1;
-}
-
-.card-image {
-  width: 100%;
-  height: 160px;
-  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  border-color: #dc2626;
+  z-index: 10;
   position: relative;
 }
 
-.card-image img {
+.repertoire-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.repertoire-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.repertoire-card:hover .card-image img {
-  transform: scale(1.05);
+.repertoire-card:hover .repertoire-image img {
+  transform: scale(1);
 }
 
-.card-title {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
+.repertoire-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.repertoire-card-title {
+  font-size: 1.3rem;
   font-weight: 600;
-  font-size: 1.1rem;
-  margin: 0.75rem 1rem 0.5rem 1rem;
-  position: relative;
-  z-index: 2;
-  line-height: 1.3;
+  color: white;
+  margin-bottom: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.card-description {
+.repertoire-card-description {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin: 0 1rem 0.75rem 1rem;
-  position: relative;
-  z-index: 2;
-  flex-grow: 1;
+  flex: 1;
+}
+
+/* Swiper Navigation Styles */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #dc2626;
+  transform: translateY(-50%) scale(1.1);
+  border-color: #dc2626;
+}
+
+.swiper-button-prev {
+  left: -30px;
+}
+
+.swiper-button-next {
+  right: -30px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  display: none;
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px !important;
+  position: relative;
+  z-index: 10;
+}
+
+.custom-pagination .pagination-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  flex-shrink: 0;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-pagination .pagination-dot:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.custom-pagination .pagination-dot.active {
+  background: #dc2626;
+  transform: scale(1.3);
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .repertoire-card {
-    height: 300px;
-  }
-  
-  .card-image {
-    height: 150px;
-  }
-  
-  .card-title {
-    font-size: 1rem;
-  }
-  
-  .card-description {
-    font-size: 0.8rem;
-  }
-  
-  .swiper-container {
-    padding: 0 25px;
-  }
-  
-  .custom-prev-btn {
-    left: 0px;
-  }
-  
-  .custom-next-btn {
-    right: 0px;
-  }
-  
-  .custom-prev-btn:after,
-  .custom-next-btn:after {
-    font-size: 20px;
-  }
-}
-
 @media (max-width: 768px) {
   .repertoire-section {
     padding: 3rem 0;
   }
   
+  .repertoire-title {
+    font-size: 2rem;
+  }
+  
+  .repertoire-subtitle {
+    font-size: 1rem;
+  }
+  
+  .repertoire-carousel {
+    padding: 0 2rem;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .repertoire-swiper {
+    padding: 0 1rem;
+  }
+  
   .repertoire-card {
-    height: 280px;
+    max-width: 270px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
   }
   
-  .card-image {
-    height: 140px;
+  .repertoire-image {
+    height: 180px;
   }
   
-  .card-title {
-    font-size: 0.95rem;
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 35px;
+    height: 35px;
   }
   
-  .card-description {
-    font-size: 0.75rem;
+  .swiper-button-prev {
+    left: -25px;
   }
   
-  .swiper-container {
-    padding: 0 20px;
-  }
-  
-  .custom-prev-btn,
-  .custom-next-btn {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .custom-prev-btn {
-    left: 0px;
-  }
-  
-  .custom-next-btn {
-    right: 0px;
-  }
-  
-  .custom-prev-btn:after,
-  .custom-next-btn:after {
-    font-size: 24px;
+  .swiper-button-next {
+    right: -25px;
   }
 }
 
 @media (max-width: 480px) {
-  .repertoire-section {
-    padding: 2rem 0;
+  .repertoire-title {
+    font-size: 1.8rem;
+  }
+  
+  .repertoire-carousel {
+    padding: 0 1.5rem;
+  }
+  
+  .repertoire-swiper {
+    padding: 0 0.5rem;
   }
   
   .repertoire-card {
-    height: 260px;
+    max-width: 280px;
+    margin: 0 auto;
+    height: 320px;
   }
   
-  .card-image {
-    height: 120px;
+  .repertoire-content {
+    padding: 1rem;
   }
   
-  .card-title {
-    font-size: 0.9rem;
+  .repertoire-card-title {
+    font-size: 1.1rem;
   }
   
-  .card-description {
-    font-size: 0.7rem;
+  .repertoire-card-description {
+    font-size: 0.85rem;
   }
   
-  .swiper-container {
-    padding: 0 15px;
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 32px;
+    height: 32px;
   }
   
-  .custom-prev-btn,
-  .custom-next-btn {
-    width: 45px;
-    height: 45px;
+  .swiper-button-prev {
+    left: -20px;
   }
   
-  .custom-prev-btn {
-    left: 0px;
-  }
-  
-  .custom-next-btn {
-    right: 0px;
-  }
-  
-  .custom-prev-btn:after,
-  .custom-next-btn:after {
-    font-size: 28px;
+  .swiper-button-next {
+    right: -20px;
   }
 }

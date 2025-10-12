@@ -22,7 +22,6 @@ const Header = ({ initialAnimationComplete }) => {
             navRight.classList.remove('nav-active');
             burger.classList.remove('active');
           }}>
-            <span>×</span>
           </div>
           <a href="#home" className="nav-link" onClick={() => {
             const navRight = document.querySelector('.nav-right');

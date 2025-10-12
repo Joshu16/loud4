@@ -156,6 +156,10 @@
     height: 160px;
   }
   
+  .member-image img {
+    object-position: top;
+  }
+  
   .member-info {
     padding: 1.25rem;
   }
@@ -180,6 +184,10 @@
   
   .member-image {
     height: 140px;
+  }
+  
+  .member-image img {
+    object-position: top;
   }
   
   .member-info {
