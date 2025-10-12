@@ -5,6 +5,7 @@ import '../styles/Contact.css';
 const Contact = ({ initialAnimationComplete }) => {
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     eventType: '',
     location: '',
     message: ''
@@ -58,6 +59,19 @@ const Contact = ({ initialAnimationComplete }) => {
                     onChange={handleChange}
                     required
                     placeholder="Tu nombre completo"
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label htmlFor="phone">Teléfono *</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    placeholder="60400987"
                   />
                 </div>
                 

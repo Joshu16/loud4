@@ -66,78 +66,80 @@ const Repertoire = ({ initialAnimationComplete }) => {
   return (
     <section id="repertoire" className="repertoire-section">
       <div className="container">
-        <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
+        <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete}>
           <div className="repertoire-header">
             <h2 className="repertoire-title">Nuestro Repertorio</h2>
             <p className="repertoire-subtitle">Descubre nuestra gama completa de música rock</p>
           </div>
         </MotionAnimation>
         
-        <div className="repertoire-carousel-container">
-          <div 
-            className={`repertoire-carousel ${isHovering ? 'has-hover' : ''}`}
-          >
-            <Swiper
-            ref={swiperRef}
-            modules={[Navigation, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={3}
-            navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            }}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            loopFillGroupWithBlank={false}
-            onSlideChange={(swiper) => {
-              setActiveSlide(swiper.realIndex);
-            }}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 30,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-            }}
-            className="repertoire-swiper"
-          >
-            {repertoireData.map((item) => (
-              <SwiperSlide key={item.id}>
-                <div 
-                  className="repertoire-card"
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  <div className="repertoire-image">
-                    <img src={item.image} alt={`${item.alt} - LOUD4 Banda Rock Costa Rica`} title={`${item.title} - LOUD4`} />
+        <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
+          <div className="repertoire-carousel-container">
+            <div 
+              className={`repertoire-carousel ${isHovering ? 'has-hover' : ''}`}
+            >
+              <Swiper
+              ref={swiperRef}
+              modules={[Navigation, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={3}
+              navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              }}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              loopFillGroupWithBlank={false}
+              onSlideChange={(swiper) => {
+                setActiveSlide(swiper.realIndex);
+              }}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                  spaceBetween: 30,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+              className="repertoire-swiper"
+            >
+              {repertoireData.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div 
+                    className="repertoire-card"
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                  >
+                    <div className="repertoire-image">
+                      <img src={item.image} alt={`${item.alt} - LOUD4 Banda Rock Costa Rica`} title={`${item.title} - LOUD4`} />
+                    </div>
+                    <div className="repertoire-content">
+                      <h3 className="repertoire-card-title">{item.title}</h3>
+                      <p className="repertoire-card-description">{item.description}</p>
+                    </div>
                   </div>
-                  <div className="repertoire-content">
-                    <h3 className="repertoire-card-title">{item.title}</h3>
-                    <p className="repertoire-card-description">{item.description}</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-        
-        <div className="swiper-button-prev">
-          <ChevronLeft size={16} strokeWidth={1} />
-        </div>
-        <div className="swiper-button-next">
-          <ChevronRight size={16} strokeWidth={1} />
-        </div>
-        </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          
+          <div className="swiper-button-prev">
+            <ChevronLeft size={16} strokeWidth={1} />
+          </div>
+          <div className="swiper-button-next">
+            <ChevronRight size={16} strokeWidth={1} />
+          </div>
+          </div>
+        </MotionAnimation>
         
         <div 
           className="custom-pagination"
@@ -150,7 +152,7 @@ const Repertoire = ({ initialAnimationComplete }) => {
           ))}
         </div>
         
-        <MotionAnimation animation="fadeInUp" delay={1000} initialAnimationComplete={initialAnimationComplete}>
+        <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete}>
           <div className="repertoire-cta">
             <button 
               className="btn btn-primary btn-large"

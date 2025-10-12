@@ -104,7 +104,7 @@ p {
 
 /* Section Spacing */
 .section {
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .section-large {
@@ -318,7 +318,7 @@ p {
   }
   
   .section {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     width: 100%;
     max-width: 100vw;
   }

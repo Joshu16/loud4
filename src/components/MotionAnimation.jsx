@@ -5,7 +5,7 @@ const MotionAnimation = ({
   children, 
   animation = 'fadeInUp', 
   delay = 0, 
-  duration = 1.2,
+  duration = 0.8,
   initialAnimationComplete = true,
   aggressive = false,
   hero = false
@@ -26,14 +26,15 @@ const MotionAnimation = ({
       
       // Calcular cuándo mostrar el elemento
       let triggerPoint;
+      const isMobile = window.innerWidth <= 768;
+      
       if (hero) {
         triggerPoint = windowHeight * 0.9; // 90% de la pantalla
       } else if (aggressive) {
         triggerPoint = windowHeight * 1.5; // 150% de la pantalla
       } else {
-        // Ajustar trigger point para móvil
-        const isMobile = window.innerWidth <= 768;
-        triggerPoint = isMobile ? windowHeight * 0.8 : windowHeight * 1.2; // 80% en móvil, 120% en desktop
+        // Trigger más agresivo para móviles
+        triggerPoint = isMobile ? windowHeight * 1.5 : windowHeight * 1.2; // 150% en móvil, 120% en desktop
       }
 
       // Si el elemento está cerca de entrar en pantalla
@@ -158,12 +159,30 @@ const MotionAnimation = ({
     }
   };
 
+  // Optimizar para móviles
+  const isMobile = window.innerWidth <= 768;
+  const optimizedVariants = {};
+  
+  Object.keys(variants).forEach(key => {
+    optimizedVariants[key] = {
+      ...variants[key],
+      visible: {
+        ...variants[key].visible,
+        transition: {
+          ...variants[key].visible.transition,
+          duration: isMobile ? Math.max(duration * 0.6, 0.3) : duration, // 60% más rápido en móvil
+          delay: isMobile ? Math.max(delay / 1000 * 0.5, 0) : delay / 1000 // 50% menos delay en móvil
+        }
+      }
+    };
+  });
+
   return (
     <motion.div
       ref={elementRef}
       initial="hidden"
       animate={isVisible ? "visible" : "hidden"}
-      variants={variants[animation]}
+      variants={optimizedVariants[animation]}
     >
       {children}
     </motion.div>

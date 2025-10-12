@@ -24,21 +24,31 @@ const Gallery = ({ initialAnimationComplete }) => {
   const displayedPhotos = showAllPhotos ? photos : photos.slice(0, 4);
 
   const videos = [
-    { id: 1, thumbnail: '/api/placeholder/400/225', title: 'Tear for Fears - Everybody Wants to Rule the World', duration: '3:45' },
-    { id: 2, thumbnail: '/api/placeholder/400/225', title: 'Duran Duran - Hungry Like the Wolf', duration: '4:12' },
-    { id: 3, thumbnail: '/api/placeholder/400/225', title: 'Rock Clásico - Medley', duration: '5:30' },
-    { id: 4, thumbnail: '/api/placeholder/400/225', title: 'Show Completo - Resumen', duration: '2:15' }
+    { 
+      id: 1, 
+      youtubeId: 'mM8x4ufDC70', 
+      title: 'Desde 2007 en las tarimas', 
+      description: 'Loud4 - Experiencia de más de 18 años'
+    },
+    { 
+      id: 2, 
+      youtubeId: 'dQw4w9WgXcQ', 
+      title: 'Show en vivo - Rock Clásico', 
+      description: 'Repertorio de música clásica del rock'
+    },
+    { 
+      id: 3, 
+      youtubeId: 'dQw4w9WgXcQ', 
+      title: 'Eventos Corporativos', 
+      description: 'Presentaciones para empresas'
+    },
+    { 
+      id: 4, 
+      youtubeId: 'dQw4w9WgXcQ', 
+      title: 'Fiestas Privadas', 
+      description: 'Celebraciones especiales'
+    }
   ];
-
-  const [selectedVideo, setSelectedVideo] = useState(null);
-
-  const openVideoModal = (video) => {
-    setSelectedVideo(video);
-  };
-
-  const closeVideoModal = () => {
-    setSelectedVideo(null);
-  };
 
   return (
     <section id="gallery" className="gallery-section section">
@@ -99,19 +109,20 @@ const Gallery = ({ initialAnimationComplete }) => {
             <div className="videos-grid">
               {videos.map((video, index) => (
                 <MotionAnimation key={video.id} animation="scaleIn" delay={600 + (index * 150)} initialAnimationComplete={initialAnimationComplete}>
-                  <div className="video-item" onClick={() => openVideoModal(video)}>
-                    <div className="video-thumbnail">
-                      <img src={video.thumbnail} alt={`${video.title} - LOUD4 Banda Rock Costa Rica`} title={`${video.title} - LOUD4`} />
-                      <div className="play-overlay">
-                        <div className="play-button">
-                          <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z"/>
-                          </svg>
-                        </div>
-                      </div>
-                      <div className="video-duration">{video.duration}</div>
+                  <div className="video-item">
+                    <div className="video-container">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                        title={video.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
                     </div>
-                    <h3 className="video-title">{video.title}</h3>
+                    <div className="video-info">
+                      <h3 className="video-title">{video.title}</h3>
+                      <p className="video-description">{video.description}</p>
+                    </div>
                   </div>
                 </MotionAnimation>
               ))}
@@ -119,24 +130,6 @@ const Gallery = ({ initialAnimationComplete }) => {
           </MotionAnimation>
         )}
       </div>
-
-      {selectedVideo && (
-        <div className="video-modal" onClick={closeVideoModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-modal" onClick={closeVideoModal}>×</button>
-            <div className="video-container">
-              <iframe
-                src={`https://www.youtube.com/embed/dQw4w9WgXcQ`}
-                title={selectedVideo.title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <h3 className="modal-title">{selectedVideo.title}</h3>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

@@ -33,7 +33,7 @@ const Footer = () => {
             <h4 className="column-title">Contacto</h4>
             <ul className="column-links">
               <li><a href="#contact">Formulario</a></li>
-              <li><a href="https://wa.me/506XXXXXXXX">WhatsApp</a></li>
+              <li><a href="https://wa.me/50660400987">WhatsApp</a></li>
               <li><a href="mailto:info@loud4.com">Email</a></li>
               <li><a href="#faq">FAQ</a></li>
             </ul>

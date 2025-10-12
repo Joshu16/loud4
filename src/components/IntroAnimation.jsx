@@ -45,10 +45,10 @@ const IntroAnimation = ({ onAnimationComplete }) => {
     <div className={`intro-animation ${fadeOut ? 'fade-out' : ''}`}>
       <div className="intro-content">
         <div className={`intro-text first-text ${showFirstText ? 'show' : ''}`}>
-          No hay noche de rock
+          No hay noche de <strong>rock</strong>
         </div>
         <div className={`intro-text second-text ${showSecondText ? 'show' : ''}`}>
-          Sin Loud4
+          Sin <strong>Loud4</strong>
         </div>
       </div>
     </div>
