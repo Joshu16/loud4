@@ -11,7 +11,7 @@ const Header = ({ initialAnimationComplete }) => {
       <nav className="navbar">
         <div className="nav-left">
           <div className="logo-container">
-            <img src={logoImage} alt="Loud4 Logo" className="band-logo" />
+            <img src={logoImage} alt="LOUD4 - Banda de Rock Clásico Costa Rica" title="LOUD4 Logo" className="band-logo" />
             <h1 className="band-name">LOUD4</h1>
           </div>
         </div>

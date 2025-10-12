@@ -58,7 +58,7 @@ const BandMembers = ({ initialAnimationComplete }) => {
               <div className="member-card card">
                 <div className="card-content">
                   <div className={`member-image ${member.id >= 4 ? 'image-top' : ''}`}>
-                    <img src={member.image} alt={member.name} />
+                    <img src={member.image} alt={`${member.name} - ${member.role} en LOUD4 Banda Rock Costa Rica`} title={`${member.name} - ${member.instrument}`} />
                     <div className="member-overlay">
                       <div className="instrument-badge">
                         <span className="instrument-text">{member.instrument}</span>

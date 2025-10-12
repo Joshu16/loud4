@@ -101,7 +101,7 @@ const Gallery = ({ initialAnimationComplete }) => {
                 <MotionAnimation key={video.id} animation="scaleIn" delay={600 + (index * 150)} initialAnimationComplete={initialAnimationComplete}>
                   <div className="video-item" onClick={() => openVideoModal(video)}>
                     <div className="video-thumbnail">
-                      <img src={video.thumbnail} alt={video.title} />
+                      <img src={video.thumbnail} alt={`${video.title} - LOUD4 Banda Rock Costa Rica`} title={`${video.title} - LOUD4`} />
                       <div className="play-overlay">
                         <div className="play-button">
                           <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">

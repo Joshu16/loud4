@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -63,30 +62,6 @@ const Repertoire = ({ initialAnimationComplete }) => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const carouselVariants = {
-    hidden: { opacity: 0, y: 80 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        ease: "easeOut",
-        delay: 0.3
-      }
-    }
-  };
 
   return (
     <section id="repertoire" className="repertoire-section">
@@ -99,11 +74,8 @@ const Repertoire = ({ initialAnimationComplete }) => {
         </MotionAnimation>
         
         <div className="repertoire-carousel-container">
-          <motion.div 
+          <div 
             className={`repertoire-carousel ${isHovering ? 'has-hover' : ''}`}
-            variants={carouselVariants}
-            initial="hidden"
-            animate={initialAnimationComplete ? "visible" : "hidden"}
           >
             <Swiper
             ref={swiperRef}
@@ -147,7 +119,7 @@ const Repertoire = ({ initialAnimationComplete }) => {
                   onMouseLeave={() => setIsHovering(false)}
                 >
                   <div className="repertoire-image">
-                    <img src={item.image} alt={item.alt} />
+                    <img src={item.image} alt={`${item.alt} - LOUD4 Banda Rock Costa Rica`} title={`${item.title} - LOUD4`} />
                   </div>
                   <div className="repertoire-content">
                     <h3 className="repertoire-card-title">{item.title}</h3>
@@ -157,7 +129,7 @@ const Repertoire = ({ initialAnimationComplete }) => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </motion.div>
+        </div>
         
         <div className="swiper-button-prev">
           <ChevronLeft size={16} strokeWidth={1} />
@@ -167,12 +139,8 @@ const Repertoire = ({ initialAnimationComplete }) => {
         </div>
         </div>
         
-        <motion.div 
+        <div 
           className="custom-pagination"
-          variants={containerVariants}
-          initial="hidden"
-          animate={initialAnimationComplete ? "visible" : "hidden"}
-          transition={{ delay: 0.6 }}
         >
           {repertoireData.map((_, index) => (
             <button
@@ -180,7 +148,18 @@ const Repertoire = ({ initialAnimationComplete }) => {
               className={`pagination-dot ${index === activeSlide ? 'active' : ''}`}
             />
           ))}
-        </motion.div>
+        </div>
+        
+        <MotionAnimation animation="fadeInUp" delay={1000} initialAnimationComplete={initialAnimationComplete}>
+          <div className="repertoire-cta">
+            <button 
+              className="btn btn-primary btn-large"
+              onClick={() => window.location.href = '#contact'}
+            >
+              Contáctanos
+            </button>
+          </div>
+        </MotionAnimation>
       </div>
     </section>
   );

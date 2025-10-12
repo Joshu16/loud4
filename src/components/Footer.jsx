@@ -33,10 +33,14 @@ const Footer = () => {
             <h4 className="column-title">Contacto</h4>
             <ul className="column-links">
               <li><a href="#contact">Formulario</a></li>
-              <li><a href="https://wa.me/5491112345678">WhatsApp</a></li>
-              <li><a href="#members">Banda</a></li>
+              <li><a href="https://wa.me/506XXXXXXXX">WhatsApp</a></li>
+              <li><a href="mailto:info@loud4.com">Email</a></li>
               <li><a href="#faq">FAQ</a></li>
             </ul>
+            <div className="contact-info">
+              <p>Costa Rica</p>
+              <p>Servicios en todo el país</p>
+            </div>
           </div>
           
           <div className="footer-column footer-cta-column">
@@ -50,10 +54,10 @@ const Footer = () => {
           <div className="footer-bottom">
             <div className="social-links">
               <img src={logoImage} alt="Loud4 Logo" className="footer-logo" />
-              <a href="#" className="social-link" aria-label="Instagram">
+              <a href="https://www.instagram.com/bandaloud4/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                 <InstagramIcon size={20} />
               </a>
-              <a href="#" className="social-link" aria-label="Facebook">
+              <a href="https://www.facebook.com/loud4/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
                 <FacebookIcon size={20} />
               </a>
               <a href="#" className="social-link" aria-label="YouTube">
