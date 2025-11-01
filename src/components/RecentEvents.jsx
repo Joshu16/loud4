@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import MotionAnimation from './MotionAnimation';
 import '../styles/RecentEvents.css';
+import santaAnaCountryClubImage from '../assets/images/santa-ana-country-club.webp';
+import elChinamoImage from '../assets/images/el-chinamo.webp';
+import jazzCafeImage from '../assets/images/jazz-cafe.webp';
+import hardRockCafeImage from '../assets/images/hard-rock-cafe.webp';
+import corridasDeToroImage from '../assets/images/corridas-de-toro.webp';
+import mundoLocoImage from '../assets/images/mundo-loco.webp';
+import barCosmosImage from '../assets/images/bar-cosmos.webp';
+import barTheWhiskeyImage from '../assets/images/bar-the-whiskey.webp';
+import elCuartelImage from '../assets/images/el-cuartel.webp';
+import fiestasPrivadasImage from '../assets/images/fiestas-privadas.webp';
 
 const RecentEvents = ({ initialAnimationComplete }) => {
   const [showAll, setShowAll] = useState(false);
@@ -9,61 +19,61 @@ const RecentEvents = ({ initialAnimationComplete }) => {
     {
       id: 1,
       venue: 'Santa Ana Country Club',
-      image: 'https://santaanacountryclubcr.com/wp-content/uploads/2019/07/img_troon.jpg',
+      image: santaAnaCountryClubImage,
       location: 'Santa Ana'
     },
     {
       id: 2,
       venue: 'El Chinamo',
-      image: 'https://s2.dmcdn.net/v/MmXFh1QAgR-fxgqGT/x1080',
+      image: elChinamoImage,
       location: 'San José'
     },
     {
       id: 3,
       venue: 'Jazz Cafe',
-      image: 'https://lh3.googleusercontent.com/p/AF1QipMfdmRQ9IsPpcXjmVeobve2tLUk14ZT8snq5KNj=s680-w680-h510-rw',
+      image: jazzCafeImage,
       location: 'San José'
     },
     {
       id: 4,
       venue: 'Hard Rock Cafe',
-      image: 'https://www.nacion.com/resizer/v2/HDXI375R7ZBKXP5G6MWOUBU7SY.jpg?smart=true&auth=87b84afcfcac25ede3653b87e2a99fb713f77c64157ca0b8387ae0037e9b7c99&width=4000&height=2667',
+      image: hardRockCafeImage,
       location: 'San José'
     },
     {
       id: 5,
       venue: 'Corridas de Toro',
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDet-5TOVla1zwh0xOZkaZPpMrTgwcUPeFVA&s',
+      image: corridasDeToroImage,
       location: 'San José'
     },
     {
       id: 6,
       venue: 'Mundo Loco',
-      image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj88RyYye1qE2CkO0GSiqOQG1hT-1HAd_vjdFgZiwvu1LW7Ick44zeNDSAVTcyzbAzQdoU6uiY-iGWZcMW0tjGHU0aJaRHZhQ4G6qdwOIqfP_gi96wXJJ3EWHJm4sRoH0HKBhUxlhwjbBHe/s1600/www.historypin.jpg',
+      image: mundoLocoImage,
       location: 'San José'
     },
     {
       id: 7,
       venue: 'Bar Cosmos',
-      image: 'https://lh3.googleusercontent.com/p/AF1QipP1g006pJuIIG6Nsi3ugEp2z85My9CiRRjEuUY9=s680-w680-h510-rw',
+      image: barCosmosImage,
       location: 'San José'
     },
     {
       id: 8,
       venue: 'Bar The Whiskey',
-      image: 'https://lh3.googleusercontent.com/gps-cs-s/AC9h4nqvV4yEbD2leMNlYxCn1nMPschHQDwHT5F35Oz8KgasgZ92tfMs_2tHlATTcXKOCzfwybnz3_WEdQOK5_11VoqSmncgX7YcQ1JUiACvCdwz0_L8d2QG-UIm_gy1aY3gHYbjdEC6hCqEru-1=s680-w680-h510-rw',
+      image: barTheWhiskeyImage,
       location: 'San José'
     },
     {
       id: 9,
       venue: 'El Cuartel',
-      image: 'https://lh3.googleusercontent.com/gps-cs-s/AC9h4noWWMr8CDDj5zK32HGB7fIbkanNChisBWkcU93rtzfHj8rtkw451PlwTEIB0XsAl9wK4NoPzUo4U6DTixOkapBp_wnJkRSF1kZpD5iVPY1ZglWW8AFe01TeLPDbxCPy9DURMnkjBg=s680-w680-h510-rw',
+      image: elCuartelImage,
       location: 'San José'
     },
     {
       id: 10,
       venue: 'Fiestas Privadas',
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+      image: fiestasPrivadasImage,
       location: 'Costa Rica'
     }
   ];

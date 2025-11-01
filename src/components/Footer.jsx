@@ -3,6 +3,7 @@ import { WhatsAppIcon, EmailIcon, InstagramIcon, FacebookIcon, YouTubeIcon } fro
 import '../styles/Footer.css';
 import Loud4 from '../assets/images/Loud4.webp';
 import logoImage from '../assets/images/logo.webp';
+import bysaborioLogo from '../assets/images/logo-bysaborio.webp';
 
 const Footer = () => {
   return (
@@ -79,7 +80,7 @@ const Footer = () => {
                   className="developer-link"
                 >
                   <img 
-                    src="https://bysaborio.vercel.app/assets/Logo%20PNG-BvnbT45m.png" 
+                    src={bysaborioLogo} 
                     alt="BySaborío Digital Solutions" 
                     className="developer-logo"
                   />
