@@ -6,7 +6,14 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import MotionAnimation from './MotionAnimation';
 import '../styles/Repertoire.css';
+// Importar imágenes de repertorios
 import Loud4 from '../assets/images/Loud4.webp';
+// Imágenes específicas para cada repertorio (agregar cuando estén disponibles)
+// import Repertoire80s from '../assets/images/repertoire-80s.webp';
+// import RepertoireMovies from '../assets/images/repertoire-movies.webp';
+// import RepertoireRockEnglish from '../assets/images/repertoire-rock-english.webp';
+// import RepertoireRockSpanish from '../assets/images/repertoire-rock-spanish.webp';
+// import RepertoireRockClassic from '../assets/images/repertoire-rock-classic.webp';
 
 const Repertoire = ({ initialAnimationComplete }) => {
   const [activeSlide, setActiveSlide] = React.useState(0);
@@ -29,35 +36,45 @@ const Repertoire = ({ initialAnimationComplete }) => {
       id: 1,
       title: "Especial Tear for Fears & Duran Duran",
       description: "Los mejores hits de los 80s con el sonido característico de estas bandas icónicas",
-      image: Loud4,
+      image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=600&fit=crop&q=80",
+      // Guitarra eléctrica con sintetizadores - estilo 80s new wave (rock eléctrico)
+      // image: Repertoire80s || Loud4, // Descomentar cuando agregues la imagen local
       alt: "Tear for Fears & Duran Duran"
     },
     {
       id: 2,
       title: "Especial canciones de películas",
       description: "Bandas sonoras legendarias que marcaron generaciones en el cine",
-      image: Loud4,
+      image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800&h=600&fit=crop&q=80",
+      // Guitarra eléctrica en escenario con luces - temática cine/rock eléctrico
+      // image: RepertoireMovies || Loud4, // Descomentar cuando agregues la imagen local
       alt: "Canciones de Películas"
     },
     {
       id: 3,
       title: "Rock clásico en inglés",
       description: "Los grandes clásicos del rock internacional que nunca pasan de moda",
-      image: Loud4,
+      image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&h=600&fit=crop&q=80",
+      // Guitarra eléctrica Les Paul con amplificadores - rock clásico inglés eléctrico
+      // image: RepertoireRockEnglish || Loud4, // Descomentar cuando agregues la imagen local
       alt: "Rock Clásico Inglés"
     },
     {
       id: 4,
       title: "Rock clásico en español",
       description: "Los hits más emblemáticos del rock en español de todas las épocas",
-      image: Loud4,
+      image: "https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?w=800&h=600&fit=crop&q=80",
+      // Guitarra eléctrica en concierto - rock latinoamericano eléctrico
+      // image: RepertoireRockSpanish || Loud4, // Descomentar cuando agregues la imagen local
       alt: "Rock Clásico Español"
     },
     {
       id: 5,
       title: "Rock clásico",
       description: "Una selección cuidadosa de los mejores temas del rock de todos los tiempos",
-      image: Loud4,
+      image: "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=800&h=600&fit=crop&q=80",
+      // Amplificadores y guitarras eléctricas - rock clásico general eléctrico
+      // image: RepertoireRockClassic || Loud4, // Descomentar cuando agregues la imagen local
       alt: "Rock Clásico"
     }
   ];
