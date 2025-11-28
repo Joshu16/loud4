@@ -5,9 +5,9 @@
   position: relative;
   min-height: 100vh;
   padding-top: 100px;
-  background-image: url('../assets/images/background.webp');
+  background-image: url('../assets/images/Bg.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
@@ -36,51 +36,51 @@
 /* Main CTA Section */
 .main-cta {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 2rem;
   gap: 1rem;
-  max-width: 600px;
-  width: 90%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .cta-text {
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 2.2rem;
-  line-height: 1.2;
+  font-weight: 400;
+  line-height: 1.0;
   text-transform: capitalize;
-  letter-spacing: 0.01em;
-  text-align: center;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
 }
 
 .cta-main {
-  font-size: 2.2rem;
+  font-size: 4.5rem;
   font-weight: 400;
-  margin-bottom: 0.5rem;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.cta-sub {
-  font-size: 3rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
 }
 
 .cta-subtitle {
   color: rgba(255, 255, 255, 0.9);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.4;
-  text-align: center;
-  max-width: 600px;
+  text-align: right;
+  max-width: 500px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .cta-buttons {
@@ -152,35 +152,19 @@
     padding-top: 80px;
   }
   
-  .cta-text {
-    font-size: 2rem;
-    line-height: 1.2;
+  .main-cta {
+    padding: 1.5rem;
+    gap: 1rem;
   }
   
   .cta-main {
-    font-size: 2rem;
-    margin-bottom: 0.4rem;
-  }
-  
-  .cta-sub {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    letter-spacing: -0.03em;
   }
   
   .cta-subtitle {
     font-size: 1.1rem;
-    line-height: 1.4;
-    margin-top: 0.8rem;
-  }
-  
-  .main-cta {
-    width: 90%;
-    gap: 1.5rem;
-  }
-  
-  .cta-button {
-    padding: 0.9rem 1.8rem;
-    font-size: 0.9rem;
-    min-width: 160px;
+    max-width: 400px;
   }
 }
 
@@ -190,51 +174,27 @@
     min-height: 100vh;
   }
   
+  .main-cta {
+    padding: 1.5rem;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
   .cta-text {
-    font-size: 1.6rem;
-    line-height: 1.15;
-    margin-bottom: 0.5rem;
+    gap: 0.2rem;
   }
   
   .cta-main {
-    font-size: 1.6rem;
-    margin-bottom: 0.3rem;
-    font-weight: 500;
-  }
-  
-  .cta-sub {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    letter-spacing: -0.03em;
   }
   
   .cta-subtitle {
     font-size: 1rem;
-    line-height: 1.4;
-    margin-top: 0.8rem;
-    margin-bottom: 1.5rem;
-    max-width: 90%;
-  }
-  
-  .cta-button {
-    padding: 0.8rem 1.6rem;
-    font-size: 0.85rem;
-    min-width: 140px;
-    border-radius: 10px;
-  }
-  
-  .cta-buttons {
-    gap: 1rem;
-    margin-top: 1.5rem;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .main-cta {
-    width: 92%;
-    gap: 1.5rem;
-    padding: 0 1rem;
+    text-align: right;
+    align-self: flex-end;
+    max-width: 100%;
   }
 }
 
@@ -244,53 +204,27 @@
     min-height: 100vh;
   }
   
+  .main-cta {
+    padding: 1rem;
+    gap: 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
   .cta-text {
-    font-size: 1.3rem;
-    line-height: 1.15;
-    margin-bottom: 0.4rem;
+    gap: 0.2rem;
   }
   
   .cta-main {
-    font-size: 1.3rem;
-    margin-bottom: 0.2rem;
-    font-weight: 500;
-  }
-  
-  .cta-sub {
-    font-size: 1.7rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
+    font-size: 2rem;
+    letter-spacing: -0.03em;
   }
   
   .cta-subtitle {
     font-size: 0.9rem;
-    line-height: 1.4;
-    margin-top: 0.6rem;
-    margin-bottom: 1.2rem;
-    max-width: 95%;
-    padding: 0 0.5rem;
-  }
-  
-  .cta-button {
-    padding: 0.75rem 1.4rem;
-    font-size: 0.8rem;
-    min-width: 120px;
-    border-radius: 8px;
-    font-weight: 500;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 1.2rem;
-    width: 100%;
-    max-width: 280px;
-  }
-  
-  .main-cta {
-    width: 95%;
-    gap: 1.2rem;
-    padding: 0 0.5rem;
+    text-align: right;
+    align-self: flex-end;
+    max-width: 100%;
   }
 }
 
@@ -300,42 +234,26 @@
     padding-top: 50px;
   }
   
+  .main-cta {
+    padding: 0.8rem;
+    gap: 0.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
   .cta-text {
-    font-size: 1.2rem;
-    line-height: 1.1;
+    gap: 0.2rem;
   }
   
   .cta-main {
-    font-size: 1.2rem;
-  }
-  
-  .cta-sub {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
   }
   
   .cta-subtitle {
     font-size: 0.85rem;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    padding: 0 0.3rem;
-  }
-  
-  .cta-button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.75rem;
-    min-width: 110px;
-  }
-  
-  .cta-buttons {
-    gap: 0.6rem;
-    margin-top: 1rem;
-    max-width: 260px;
-  }
-  
-  .main-cta {
-    width: 98%;
-    gap: 1rem;
-    padding: 0 0.3rem;
+    text-align: right;
+    align-self: flex-end;
   }
 }
 

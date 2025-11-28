@@ -1,7 +1,7 @@
 /* Band Section */
 .band-section {
   background: #1a1a1a;
-  padding: 4rem 0;
+  padding: 6rem 0;
   position: relative;
 }
 
@@ -22,91 +22,104 @@
   text-align: center;
 }
 
-.section-title {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  text-transform: capitalize;
-  letter-spacing: 0.05em;
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.band-description {
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.counter-number {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 6rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+}
+
+.counter-label {
   color: rgba(255, 255, 255, 0.9);
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-}
-
-.band-description:last-of-type {
-  margin-bottom: 2rem;
-}
-
-.btn-small {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: #dc2626;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  min-width: 160px;
-  justify-content: center;
-}
-
-.btn-small:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
-  background: #b91c1c;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .section-title {
     font-size: 2rem;
+    margin-bottom: 2.5rem;
   }
   
-  .band-description {
-    font-size: 1rem;
+  .counters-grid {
+    gap: 1.5rem;
+  }
+  
+  .counter-number {
+    font-size: 5rem;
+  }
+  
+  .counter-label {
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 768px) {
   .band-section {
-    padding: 3rem 0;
+    padding: 5rem 0;
   }
   
   .section-title {
     font-size: 1.8rem;
+    margin-bottom: 2rem;
   }
   
-  .band-description {
-    font-size: 0.95rem;
+  .counters-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 400px;
+  }
+  
+  .counter-number {
+    font-size: 4rem;
+  }
+  
+  .counter-label {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .band-section {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
   
   .section-title {
     font-size: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   
-  .band-description {
-    font-size: 0.9rem;
+  .counters-grid {
+    gap: 1.5rem;
+  }
+  
+  .counter-number {
+    font-size: 3rem;
+  }
+  
+  .counter-label {
+    font-size: 1rem;
   }
 }

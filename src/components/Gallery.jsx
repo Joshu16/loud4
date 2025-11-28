@@ -14,7 +14,7 @@ const Gallery = ({ initialAnimationComplete }) => {
       title: 'SACC - Presentación especial', 
       description: 'Show en SACC - Red social'
     },
-    // DURAN
+    // DURAN - Este es el segundo video que va en grande
     { 
       id: 2, 
       youtubeId: '0e56ZLh7Is4', 
@@ -67,104 +67,144 @@ const Gallery = ({ initialAnimationComplete }) => {
     }
   ];
 
-  const displayedVideos = showAll ? videos : videos.slice(0, 3);
+  // El segundo video (índice 1)
+  const featuredVideo = videos[1];
+  
+  // Los demás videos excluyendo el segundo
+  const otherVideos = videos.filter((video, index) => index !== 1);
+  
+  // Videos a mostrar en el grid (3 inicialmente, todos si showAll)
+  const displayedVideos = showAll ? otherVideos : otherVideos.slice(0, 3);
 
   return (
     <section id="gallery" className="gallery-section section">
       <div className="container">
         <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
           <div className="section-header">
-            <h2 className="section-title">Así se vive un show con Loud4</h2>
+            <h2 className="section-title">
+              <span className="title-line-1">Noches</span>
+              <span className="title-line-2">Mágicas</span>
+            </h2>
           </div>
         </MotionAnimation>
 
+        {/* Video destacado en grande */}
         <MotionAnimation animation="fadeInUp" delay={400} initialAnimationComplete={initialAnimationComplete}>
-          <div className="videos-grid">
-            {displayedVideos.map((video, index) => (
-              <MotionAnimation key={video.id} animation="scaleIn" delay={600 + (index * 150)} initialAnimationComplete={initialAnimationComplete}>
-                <div className={`video-item ${video.type === 'facebook' ? 'vertical' : ''}`}>
-                  <div className="video-container">
-                    {video.type === 'facebook' ? (
-                      <>
-                        <iframe
-                          src={`https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F${video.facebookId}&show_text=false&width=315&height=560&appId`}
-                          title={video.title}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          width="315"
-                          height="560"
-                          scrolling="no"
-                          style={{
-                            border: 'none', 
-                            overflow: 'hidden',
-                            position: 'absolute',
-                            top: '18%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: '100%',
-                            height: '250%'
-                          }}
-                          onError={(e) => {
-                            // Si falla, mostrar placeholder
-                            e.target.style.display = 'none';
-                            const placeholder = e.target.nextSibling;
-                            if (placeholder) placeholder.style.display = 'block';
-                          }}
-                        />
-                        <div className="video-fallback" style={{display: 'none'}}>
-                          <div className="video-placeholder">
-                            <div className="video-thumbnail">
-                              <div className="play-button">▶</div>
-                              <div className="facebook-thumbnail">
-                                <div className="video-icon">📘</div>
-                                <p>Video no disponible</p>
-                              </div>
-                            </div>
-                            <a 
-                              href={`https://www.facebook.com/reel/${video.facebookId}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="video-link"
-                            >
-                              Ver en Facebook
-                            </a>
-                          </div>
-                        </div>
-                      </>
-                    ) : (
-                      <iframe
-                        src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1`}
-                        title={video.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        width="560"
-                        height="315"
-                      />
-                    )}
-                  </div>
-                  <div className="video-info">
-                    <h3 className="video-title">{video.title}</h3>
-                    <p className="video-description">{video.description}</p>
-                  </div>
-                </div>
-              </MotionAnimation>
-            ))}
+          <div className="featured-video-container">
+            <div className="featured-video-wrapper">
+              <iframe
+                src={`https://www.youtube.com/embed/${featuredVideo.youtubeId}?rel=0&modestbranding=1`}
+                title={featuredVideo.title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                width="100%"
+                height="100%"
+              />
+            </div>
           </div>
         </MotionAnimation>
-        
-        {videos.length > 3 && (
-          <MotionAnimation animation="fadeInUp" delay={800} initialAnimationComplete={initialAnimationComplete}>
+
+        {/* Botón Ver más */}
+        {otherVideos.length > 3 && !showAll && (
+          <MotionAnimation animation="fadeInUp" delay={600} initialAnimationComplete={initialAnimationComplete}>
             <div className="show-more-container">
               <button 
                 className="show-more-btn"
-                onClick={() => setShowAll(!showAll)}
+                onClick={() => setShowAll(true)}
               >
-                {showAll ? 'Ver menos videos' : 'Ver más videos'}
+                Ver más
               </button>
             </div>
           </MotionAnimation>
+        )}
+
+        {/* Grid de videos (sin captions) */}
+        {showAll && (
+          <>
+            <MotionAnimation animation="fadeInUp" delay={600} initialAnimationComplete={initialAnimationComplete}>
+              <div className="videos-grid">
+                {displayedVideos.map((video, index) => (
+                  <MotionAnimation key={video.id} animation="scaleIn" delay={800 + (index * 100)} initialAnimationComplete={initialAnimationComplete}>
+                    <div className={`video-item ${video.type === 'facebook' ? 'vertical' : ''}`}>
+                      <div className="video-container">
+                        {video.type === 'facebook' ? (
+                          <>
+                            <iframe
+                              src={`https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F${video.facebookId}&show_text=false&width=315&height=560&appId`}
+                              title={video.title}
+                              frameBorder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                              width="315"
+                              height="560"
+                              scrolling="no"
+                              style={{
+                                border: 'none', 
+                                overflow: 'hidden',
+                                position: 'absolute',
+                                top: '18%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                width: '100%',
+                                height: '250%'
+                              }}
+                              onError={(e) => {
+                                e.target.style.display = 'none';
+                                const placeholder = e.target.nextSibling;
+                                if (placeholder) placeholder.style.display = 'block';
+                              }}
+                            />
+                            <div className="video-fallback" style={{display: 'none'}}>
+                              <div className="video-placeholder">
+                                <div className="video-thumbnail">
+                                  <div className="play-button">▶</div>
+                                  <div className="facebook-thumbnail">
+                                    <div className="video-icon">📘</div>
+                                    <p>Video no disponible</p>
+                                  </div>
+                                </div>
+                                <a 
+                                  href={`https://www.facebook.com/reel/${video.facebookId}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="video-link"
+                                >
+                                  Ver en Facebook
+                                </a>
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <iframe
+                            src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0&modestbranding=1`}
+                            title={video.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            width="560"
+                            height="315"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </MotionAnimation>
+                ))}
+              </div>
+            </MotionAnimation>
+            
+            {/* Botón Ver menos */}
+            <MotionAnimation animation="fadeInUp" delay={1000} initialAnimationComplete={initialAnimationComplete}>
+              <div className="show-more-container">
+                <button 
+                  className="show-more-btn"
+                  onClick={() => setShowAll(false)}
+                >
+                  Ver menos
+                </button>
+              </div>
+            </MotionAnimation>
+          </>
         )}
       </div>
     </section>
