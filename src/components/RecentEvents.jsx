@@ -78,7 +78,7 @@ const RecentEvents = ({ initialAnimationComplete }) => {
     }
   ];
 
-  const displayedEvents = showAll ? events : events.slice(0, 3);
+  const displayedEvents = showAll ? events : events.slice(0, 8);
 
   return (
     <section id="events" className="recent-events-section section">
@@ -89,22 +89,15 @@ const RecentEvents = ({ initialAnimationComplete }) => {
           </div>
         </MotionAnimation>
         
-        <div className="events-grid grid-3">
+        <div className="events-grid">
           {displayedEvents.map((event, index) => (
             <MotionAnimation key={event.id} animation="scaleIn" delay={400 + (index * 80)} initialAnimationComplete={initialAnimationComplete}>
-              <div className="event-card card">
-                <div className="card-content">
-                  <div className="event-image">
-                    <img src={event.image} alt={event.venue} />
-                    <div className="event-overlay">
-                      <div className="event-info">
-                        <h3 className="venue-name">{event.venue}</h3>
-                        <p className="event-location">{event.location}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="event-details">
-                    <h3 className="card-title">{event.venue}</h3>
+              <div className="event-card">
+                <div className="event-image">
+                  <img src={event.image} alt={event.venue} />
+                  <div className="event-text-overlay">
+                    <h3 className="venue-name">{event.venue}</h3>
+                    <p className="event-location">{event.location}</p>
                   </div>
                 </div>
               </div>
@@ -112,8 +105,8 @@ const RecentEvents = ({ initialAnimationComplete }) => {
           ))}
         </div>
         
-        {events.length > 3 && (
-          <MotionAnimation animation="fadeInUp" delay={800} initialAnimationComplete={initialAnimationComplete}>
+        {events.length > 8 && (
+          <MotionAnimation animation="fadeInUp" delay={1000} initialAnimationComplete={initialAnimationComplete}>
             <div className="show-more-container">
               <button 
                 className="show-more-btn"

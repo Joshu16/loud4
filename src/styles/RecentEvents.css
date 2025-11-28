@@ -1,46 +1,76 @@
 /* Recent Events Section */
 .recent-events-section {
-  background: #0f0f0f;
+  background: #000000;
   color: white;
-}
-
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 0;
-  margin: 0;
-}
-
-.events-grid .event-card {
-  margin: 0;
-  padding: 0;
+  padding: 6rem 2rem;
 }
 
 .section-header {
-  text-align: center;
-  margin-bottom: 2.5rem;
+  text-align: left;
+  margin-bottom: 4rem;
+  padding: 0 2rem;
+}
+
+.section-title {
+  color: #ffffff;
+  font-size: 7rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Events Grid - 2 rows, 4 columns */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .event-card {
+  position: relative;
   padding: 0;
   margin: 0;
   overflow: hidden;
-  background: #2a2a2a;
-  border: 1px solid rgba(220, 38, 38, 0.2);
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 12px;
   box-sizing: border-box;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
+.event-card:hover {
+  transform: translateY(-4px);
+}
 
 .event-image {
   position: relative;
-  height: 180px;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
   box-sizing: border-box;
+}
+
+.event-image::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.95) 15%, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.7) 75%, rgba(0, 0, 0, 0.5) 90%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .event-image img {
@@ -48,82 +78,47 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
-  margin: 0;
-  padding: 0;
   display: block;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
+.event-card:hover .event-image img {
+  transform: scale(1.05);
+}
 
-.event-overlay {
+.event-text-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(220, 38, 38, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-
-.event-info {
-  text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
+  z-index: 2;
+  background: transparent;
 }
 
 .venue-name {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: white;
+  
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .event-location {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.event-details {
-  padding: 0.75rem;
-  text-align: center;
-}
-
-.card-title {
-  margin-bottom: 0.6rem;
-  color: white;
-  text-align: center;
-}
-
-.card-description {
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1rem;
-  line-height: 1.5;
   font-size: 0.9rem;
-  text-align: center;
-}
-
-.event-meta {
-  display: none;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .show-more-container {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .show-more-btn {
   background: transparent;
-  border: 2px solid rgba(220, 38, 38, 0.5);
-  color: #dc2626;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
   padding: 0.75rem 2rem;
   border-radius: 8px;
   font-weight: 500;
@@ -134,47 +129,67 @@
 }
 
 .show-more-btn:hover {
-  background: rgba(220, 38, 38, 0.1);
-  border-color: #dc2626;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-title {
+    font-size: 5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .recent-events-section {
-    padding: 3rem 0;
+    padding: 4rem 1rem;
   }
-  
-  .events-header .section-title {
-    font-size: 2rem;
+
+  .section-header {
+    padding: 0 1rem;
+    margin-bottom: 3rem;
   }
-  
+
+  .section-title {
+    font-size: 4rem;
+  }
+
   .events-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
   }
-  
-  .event-card {
-    margin: 0 1rem;
+
+  .venue-name {
+    font-size: 1.1rem;
   }
-  
-  .event-details {
+
+  .event-location {
+    font-size: 0.85rem;
+  }
+
+  .event-text-overlay {
     padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
+  .recent-events-section {
+    padding: 3rem 0.5rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
   .events-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
-  
-  .event-card {
-    margin: 0;
-  }
-  
-  .event-meta {
-    flex-direction: column;
-    gap: 0.5rem;
+    padding: 0 0.5rem;
   }
 }
