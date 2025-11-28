@@ -1,7 +1,7 @@
 /* Band Section */
 .band-section {
   background: #1a1a1a;
-  padding: 4rem 0;
+  padding: 6rem 0;
   position: relative;
 }
 
@@ -78,7 +78,7 @@
 
 @media (max-width: 768px) {
   .band-section {
-    padding: 3rem 0;
+    padding: 5rem 0;
   }
   
   .section-title {
@@ -103,7 +103,7 @@
 
 @media (max-width: 480px) {
   .band-section {
-    padding: 2rem 0;
+    padding: 4rem 0;
   }
   
   .section-title {

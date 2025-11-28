@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -9,20 +9,7 @@ import '../styles/Repertoire.css';
 import Loud4 from '../assets/images/Loud4.webp';
 
 const Repertoire = ({ initialAnimationComplete }) => {
-  const [activeSlide, setActiveSlide] = React.useState(0);
-  const [isHovering, setIsHovering] = React.useState(false);
   const swiperRef = useRef(null);
-
-  // Controlar autoplay basado en hover
-  useEffect(() => {
-    if (swiperRef.current && swiperRef.current.swiper) {
-      if (isHovering) {
-        swiperRef.current.swiper.autoplay.stop();
-      } else {
-        swiperRef.current.swiper.autoplay.start();
-      }
-    }
-  }, [isHovering]);
 
   const repertoireData = [
     {
@@ -62,10 +49,9 @@ const Repertoire = ({ initialAnimationComplete }) => {
     }
   ];
 
-
   return (
     <section id="repertoire" className="repertoire-section">
-      <div className="container">
+      <div className="repertoire-container">
         <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete}>
           <div className="repertoire-header">
             <h2 className="repertoire-title">Nuestro Repertorio</h2>
@@ -74,53 +60,52 @@ const Repertoire = ({ initialAnimationComplete }) => {
         </MotionAnimation>
         
         <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
-          <div className="repertoire-carousel-container">
-            <div 
-              className={`repertoire-carousel ${isHovering ? 'has-hover' : ''}`}
-            >
-              <Swiper
+          <div className="repertoire-carousel-wrapper">
+            <Swiper
               ref={swiperRef}
               modules={[Navigation, Autoplay]}
-              spaceBetween={30}
-              slidesPerView={3}
+              spaceBetween={0}
+              slidesPerView="auto"
+              centeredSlides={true}
               navigation={{
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.repertoire-nav-next',
+                prevEl: '.repertoire-nav-prev',
               }}
               autoplay={{
-                delay: 4000,
+                delay: 5000,
                 disableOnInteraction: false,
               }}
               loop={true}
-              loopFillGroupWithBlank={false}
-              onSlideChange={(swiper) => {
-                setActiveSlide(swiper.realIndex);
-              }}
               breakpoints={{
                 320: {
-                  slidesPerView: 1,
-                  spaceBetween: 30,
+                  slidesPerView: "auto",
+                  spaceBetween: 0,
+                  centeredSlides: true,
                 },
                 768: {
-                  slidesPerView: 2,
-                  spaceBetween: 30,
+                  slidesPerView: "auto",
+                  spaceBetween: 0,
+                  centeredSlides: true,
                 },
                 1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 30,
+                  slidesPerView: "auto",
+                  spaceBetween: 0,
+                  centeredSlides: true,
                 },
               }}
               className="repertoire-swiper"
             >
               {repertoireData.map((item) => (
                 <SwiperSlide key={item.id}>
-                  <div 
-                    className="repertoire-card"
-                    onMouseEnter={() => setIsHovering(true)}
-                    onMouseLeave={() => setIsHovering(false)}
-                  >
-                    <div className="repertoire-image">
-                      <img src={item.image} alt={`${item.alt} - LOUD4 Banda Rock Costa Rica`} title={`${item.title} - LOUD4`} />
+                  <div className="repertoire-card">
+                    <div className="repertoire-image-wrapper">
+                      <img 
+                        src={item.image} 
+                        alt={`${item.alt} - LOUD4 Banda Rock Costa Rica`} 
+                        title={`${item.title} - LOUD4`}
+                        className="repertoire-image"
+                      />
+                      <div className="repertoire-overlay"></div>
                     </div>
                     <div className="repertoire-content">
                       <h3 className="repertoire-card-title">{item.title}</h3>
@@ -130,36 +115,15 @@ const Repertoire = ({ initialAnimationComplete }) => {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
-          
-          <div className="swiper-button-prev">
-            <ChevronLeft size={16} strokeWidth={1} />
-          </div>
-          <div className="swiper-button-next">
-            <ChevronRight size={16} strokeWidth={1} />
-          </div>
-          </div>
-        </MotionAnimation>
-        
-        <div 
-          className="custom-pagination"
-        >
-          {repertoireData.map((_, index) => (
-            <button
-              key={index}
-              className={`pagination-dot ${index === activeSlide ? 'active' : ''}`}
-            />
-          ))}
-        </div>
-        
-        <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete}>
-          <div className="repertoire-cta">
-            <button 
-              className="btn btn-primary btn-large"
-              onClick={() => window.location.href = '#contact'}
-            >
-              Contáctanos
-            </button>
+            
+            <div className="repertoire-navigation">
+              <button className="repertoire-nav-btn repertoire-nav-prev">
+                <ChevronLeft size={48} />
+              </button>
+              <button className="repertoire-nav-btn repertoire-nav-next">
+                <ChevronRight size={48} />
+              </button>
+            </div>
           </div>
         </MotionAnimation>
       </div>
