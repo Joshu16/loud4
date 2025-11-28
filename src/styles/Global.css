@@ -61,9 +61,18 @@ h1, .h1 {
   color: white;
 }
 
-h2, .h2, .section-title {
+h2, .h2 {
   font-size: 2rem;
   font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+/* Section titles - se definen específicamente en cada sección */
+.section-title {
+  font-size: 2rem;
+  font-weight: 400;
   line-height: 1.3;
   margin-bottom: 0.75rem;
   color: white;

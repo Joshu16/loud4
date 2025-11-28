@@ -4,13 +4,13 @@
   color: white;
 }
 
-.section-header {
+.gallery-section .section-header {
   text-align: left;
   margin-bottom: 3rem;
   padding: 0 2rem;
 }
 
-.section-title {
+.gallery-section .section-title {
   color: #ffffff;
   font-size: 7rem;
   font-weight: 400;
@@ -307,7 +307,7 @@
     padding: 3rem 0;
   }
   
-  .section-title {
+  .gallery-section .section-title {
     font-size: 4rem;
   }
 

@@ -65,9 +65,9 @@ Información del evento:
         <div className="contact-content">
           <div className="contact-form-container">
             <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
-              <div className="form-header">
+              <div className="section-header form-header">
                 <h2 className="section-title">Contratanos para tu evento</h2>
-                <p className="form-subtitle">Respondemos rápido y adaptamos el show a tu evento</p>
+                <p className="section-subtitle form-subtitle">Respondemos rápido y adaptamos el show a tu evento</p>
               </div>
             </MotionAnimation>
             
