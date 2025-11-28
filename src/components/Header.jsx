@@ -28,19 +28,7 @@ const Header = ({ initialAnimationComplete }) => {
             const burger = document.querySelector('.nav-burger');
             navRight.classList.remove('nav-active');
             burger.classList.remove('active');
-          }}>Inicio</a>
-          <a href="#about" className="nav-link" onClick={() => {
-            const navRight = document.querySelector('.nav-right');
-            const burger = document.querySelector('.nav-burger');
-            navRight.classList.remove('nav-active');
-            burger.classList.remove('active');
-          }}>Nosotros</a>
-          <a href="#repertoire" className="nav-link" onClick={() => {
-            const navRight = document.querySelector('.nav-right');
-            const burger = document.querySelector('.nav-burger');
-            navRight.classList.remove('nav-active');
-            burger.classList.remove('active');
-          }}>Música</a>
+          }}>Repertorio</a>
           <a href="#gallery" className="nav-link" onClick={() => {
             const navRight = document.querySelector('.nav-right');
             const burger = document.querySelector('.nav-burger');
@@ -85,21 +73,11 @@ const Header = ({ initialAnimationComplete }) => {
           <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete} hero={true}>
             <div className="cta-text">
               <div className="cta-main">Anima tus eventos</div>
-              <div className="cta-sub">Con clásicos del rock</div>
+              <div className="cta-main">Con clásicos del rock</div>
             </div>
           </MotionAnimation>
           <MotionAnimation animation="fadeInUp" delay={300} initialAnimationComplete={initialAnimationComplete} hero={true}>
             <div className="cta-subtitle">Cobertura musical profesional para bodas, eventos corporativos y celebraciones especiales</div>
-          </MotionAnimation>
-          <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete} hero={true}>
-            <div className="cta-buttons">
-              <button className="cta-button primary" onClick={() => window.location.href = '#contact'}>
-                RESERVAR EVENTO
-              </button>
-              <button className="cta-button secondary" onClick={() => window.location.href = '#about'}>
-                VER SERVICIOS
-              </button>
-            </div>
           </MotionAnimation>
         </div>
       </header>

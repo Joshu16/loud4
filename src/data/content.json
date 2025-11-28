@@ -1,0 +1,203 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "venue": "Santa Ana Country Club",
+      "image": "santa-ana-country-club.webp",
+      "location": "Santa Ana"
+    },
+    {
+      "id": 2,
+      "venue": "El Chinamo",
+      "image": "el-chinamo.webp",
+      "location": "San José"
+    },
+    {
+      "id": 3,
+      "venue": "Jazz Cafe",
+      "image": "jazz-cafe.webp",
+      "location": "San José"
+    },
+    {
+      "id": 4,
+      "venue": "Hard Rock Cafe",
+      "image": "hard-rock-cafe.webp",
+      "location": "San José"
+    },
+    {
+      "id": 5,
+      "venue": "Corridas de Toro",
+      "image": "corridas-de-toro.webp",
+      "location": "San José"
+    },
+    {
+      "id": 6,
+      "venue": "Mundo Loco",
+      "image": "mundo-loco.webp",
+      "location": "San José"
+    },
+    {
+      "id": 7,
+      "venue": "Bar Cosmos",
+      "image": "bar-cosmos.webp",
+      "location": "San José"
+    },
+    {
+      "id": 8,
+      "venue": "Bar The Whiskey",
+      "image": "bar-the-whiskey.webp",
+      "location": "San José"
+    },
+    {
+      "id": 9,
+      "venue": "El Cuartel",
+      "image": "el-cuartel.webp",
+      "location": "San José"
+    },
+    {
+      "id": 10,
+      "venue": "Fiestas Privadas",
+      "image": "fiestas-privadas.webp",
+      "location": "Costa Rica"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "type": "facebook",
+      "facebookId": "9887646207963429",
+      "title": "SACC - Presentación especial",
+      "description": "Show en SACC - Red social"
+    },
+    {
+      "id": 2,
+      "type": "youtube",
+      "youtubeId": "0e56ZLh7Is4",
+      "title": "Tears for Fears - Interpretación",
+      "description": "Clásicos de los 80s"
+    },
+    {
+      "id": 3,
+      "type": "youtube",
+      "youtubeId": "nqLEkrprFfM",
+      "title": "Duran Duran - Show en vivo",
+      "description": "Música new wave de los 80s"
+    },
+    {
+      "id": 4,
+      "type": "youtube",
+      "youtubeId": "T2bhxWQPpvk",
+      "title": "Tears/Duran - Medley",
+      "description": "Mezcla de grandes éxitos"
+    },
+    {
+      "id": 6,
+      "type": "youtube",
+      "youtubeId": "Cl45u8OSJUs",
+      "title": "Beatles Era - Show en vivo",
+      "description": "Interpretando clásicos de The Beatles"
+    },
+    {
+      "id": 7,
+      "type": "youtube",
+      "youtubeId": "M9jbHi-rzKQ",
+      "title": "Beatles Era - Música clásica",
+      "description": "Los grandes éxitos de la era Beatle"
+    },
+    {
+      "id": 8,
+      "type": "youtube",
+      "youtubeId": "gTMayVhx6JU",
+      "title": "Beatles Era - En concierto",
+      "description": "Repertorio completo de The Beatles"
+    },
+    {
+      "id": 9,
+      "type": "youtube",
+      "youtubeId": "mM8x4ufDC70",
+      "title": "Desde 2007 en las tarimas",
+      "description": "Loud4 - Experiencia de más de 18 años"
+    },
+    {
+      "id": 10,
+      "type": "youtube",
+      "youtubeId": "JjXUCvEmD-c",
+      "title": "18 años de trayectoria",
+      "description": "Evolución musical a lo largo de los años"
+    }
+  ],
+  "members": [
+    {
+      "id": 1,
+      "name": "Dago Ortiz",
+      "role": "Vocalista, guitarrista, bajista",
+      "image": "dago-ortiz.webp",
+      "instrument": "Voz/Guitarra/Bajo"
+    },
+    {
+      "id": 2,
+      "name": "Walter Saborío",
+      "role": "Guitarrista, corista",
+      "image": "walter-saborio.webp",
+      "instrument": "Guitarra"
+    },
+    {
+      "id": 3,
+      "name": "Ale Gonzalez",
+      "role": "Bajista, guitarra acústica",
+      "image": "ale-gonzalez.webp",
+      "instrument": "Bajo/Acústica"
+    },
+    {
+      "id": 4,
+      "name": "Luis Monge",
+      "role": "Teclado",
+      "image": "luis-monge.webp",
+      "instrument": "Teclados"
+    },
+    {
+      "id": 5,
+      "name": "Andrés Arias",
+      "role": "Baterista",
+      "image": "andres-arias.webp",
+      "instrument": "Batería"
+    }
+  ],
+  "repertoire": [
+    {
+      "id": 1,
+      "title": "Especial Tear for Fears & Duran Duran",
+      "description": "Los mejores hits de los 80s con el sonido característico de estas bandas icónicas",
+      "image": "Loud4.webp",
+      "alt": "Tear for Fears & Duran Duran"
+    },
+    {
+      "id": 2,
+      "title": "Especial canciones de películas",
+      "description": "Bandas sonoras legendarias que marcaron generaciones en el cine",
+      "image": "Loud4.webp",
+      "alt": "Canciones de Películas"
+    },
+    {
+      "id": 3,
+      "title": "Rock clásico en inglés",
+      "description": "Los grandes clásicos del rock internacional que nunca pasan de moda",
+      "image": "Loud4.webp",
+      "alt": "Rock Clásico Inglés"
+    },
+    {
+      "id": 4,
+      "title": "Rock clásico en español",
+      "description": "Los hits más emblemáticos del rock en español de todas las épocas",
+      "image": "Loud4.webp",
+      "alt": "Rock Clásico Español"
+    },
+    {
+      "id": 5,
+      "title": "Rock clásico",
+      "description": "Una selección cuidadosa de los mejores temas del rock de todos los tiempos",
+      "image": "Loud4.webp",
+      "alt": "Rock Clásico"
+    }
+  ]
+}
