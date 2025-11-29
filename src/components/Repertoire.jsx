@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
@@ -16,7 +16,10 @@ import Loud4 from '../assets/images/Loud4.webp';
 // import RepertoireRockClassic from '../assets/images/repertoire-rock-classic.webp';
 
 const Repertoire = ({ initialAnimationComplete }) => {
-  const swiperRef = useRef(null);
+  const swiperInstance = useRef(null);
+  const prevButtonRef = useRef(null);
+  const nextButtonRef = useRef(null);
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
 
   const repertoireData = [
     {
@@ -77,37 +80,42 @@ const Repertoire = ({ initialAnimationComplete }) => {
         </MotionAnimation>
         
         <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
+          {/* Desktop Carousel */}
           <div className="repertoire-carousel-wrapper">
             <Swiper
-              ref={swiperRef}
               modules={[Navigation, Autoplay]}
               spaceBetween={0}
               slidesPerView="auto"
               centeredSlides={true}
               navigation={{
-                nextEl: '.repertoire-nav-next',
-                prevEl: '.repertoire-nav-prev',
+                nextEl: nextButtonRef.current,
+                prevEl: prevButtonRef.current,
               }}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
+              onSwiper={(swiper) => {
+                // Guardar la instancia de Swiper
+                swiperInstance.current = swiper;
+                // Inicializar navegación cuando Swiper esté listo
+                setTimeout(() => {
+                  if (prevButtonRef.current && nextButtonRef.current && swiper.navigation) {
+                    swiper.params.navigation.nextEl = nextButtonRef.current;
+                    swiper.params.navigation.prevEl = prevButtonRef.current;
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                  }
+                }, 50);
               }}
-              loop={true}
+              speed={0}
+              allowTouchMove={false}
               breakpoints={{
-                320: {
-                  slidesPerView: "auto",
-                  spaceBetween: 0,
-                  centeredSlides: true,
-                },
-                768: {
-                  slidesPerView: "auto",
-                  spaceBetween: 0,
-                  centeredSlides: true,
-                },
                 1024: {
                   slidesPerView: "auto",
                   spaceBetween: 0,
                   centeredSlides: true,
+                  autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                  },
+                  loop: true,
                 },
               }}
               className="repertoire-swiper"
@@ -134,12 +142,139 @@ const Repertoire = ({ initialAnimationComplete }) => {
             </Swiper>
             
             <div className="repertoire-navigation">
-              <button className="repertoire-nav-btn repertoire-nav-prev">
-                <ChevronLeft size={48} />
+              <button 
+                ref={prevButtonRef}
+                type="button" 
+                className="repertoire-nav-btn repertoire-nav-prev" 
+                aria-label="Anterior"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  if (swiperInstance.current) {
+                    swiperInstance.current.slidePrev();
+                  }
+                }}
+              >
+                <ChevronLeft size={28} color="#ffffff" strokeWidth={2.5} />
               </button>
-              <button className="repertoire-nav-btn repertoire-nav-next">
-                <ChevronRight size={48} />
+              <button 
+                ref={nextButtonRef}
+                type="button" 
+                className="repertoire-nav-btn repertoire-nav-next" 
+                aria-label="Siguiente"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  if (swiperInstance.current) {
+                    swiperInstance.current.slideNext();
+                  }
+                }}
+              >
+                <ChevronRight size={28} color="#ffffff" strokeWidth={2.5} />
               </button>
+            </div>
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="repertoire-mobile-wrapper">
+            <div className="repertoire-mobile-navigation">
+              <button 
+                type="button" 
+                className="repertoire-mobile-nav-btn repertoire-mobile-nav-prev" 
+                aria-label="Anterior"
+                onTouchStart={(e) => {
+                  e.currentTarget.style.borderColor = '#dc2626';
+                  e.currentTarget.querySelector('svg path').setAttribute('stroke', '#dc2626');
+                }}
+                onTouchEnd={(e) => {
+                  setTimeout(() => {
+                    e.currentTarget.style.borderColor = '#ffffff';
+                    e.currentTarget.querySelector('svg path').setAttribute('stroke', '#ffffff');
+                  }, 150);
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setCurrentMobileIndex((prev) => 
+                    prev === 0 ? repertoireData.length - 1 : prev - 1
+                  );
+                }}
+              >
+                <svg 
+                  width="50" 
+                  height="50" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ display: 'block' }}
+                >
+                  <path 
+                    d="M15 18L9 12L15 6" 
+                    stroke="#ffffff" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    style={{ transition: 'stroke 0.2s ease' }}
+                  />
+                </svg>
+              </button>
+              <button 
+                type="button" 
+                className="repertoire-mobile-nav-btn repertoire-mobile-nav-next" 
+                aria-label="Siguiente"
+                onTouchStart={(e) => {
+                  e.currentTarget.style.borderColor = '#dc2626';
+                  e.currentTarget.querySelector('svg path').setAttribute('stroke', '#dc2626');
+                }}
+                onTouchEnd={(e) => {
+                  setTimeout(() => {
+                    e.currentTarget.style.borderColor = '#ffffff';
+                    e.currentTarget.querySelector('svg path').setAttribute('stroke', '#ffffff');
+                  }, 150);
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setCurrentMobileIndex((prev) => 
+                    prev === repertoireData.length - 1 ? 0 : prev + 1
+                  );
+                }}
+              >
+                <svg 
+                  width="50" 
+                  height="50" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ display: 'block' }}
+                >
+                  <path 
+                    d="M9 18L15 12L9 6" 
+                    stroke="#ffffff" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    style={{ transition: 'stroke 0.2s ease' }}
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="repertoire-mobile-image-container">
+              <div className="repertoire-mobile-card">
+                <div className="repertoire-mobile-image-wrapper">
+                  <img 
+                    src={repertoireData[currentMobileIndex].image} 
+                    alt={`${repertoireData[currentMobileIndex].alt} - LOUD4 Banda Rock Costa Rica`} 
+                    title={`${repertoireData[currentMobileIndex].title} - LOUD4`}
+                    className="repertoire-mobile-image"
+                  />
+                  <div className="repertoire-mobile-overlay"></div>
+                </div>
+                <div className="repertoire-mobile-content">
+                  <h3 className="repertoire-mobile-card-title">{repertoireData[currentMobileIndex].title}</h3>
+                  <p className="repertoire-mobile-card-description">{repertoireData[currentMobileIndex].description}</p>
+                </div>
+              </div>
             </div>
           </div>
         </MotionAnimation>

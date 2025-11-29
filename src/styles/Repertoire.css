@@ -10,6 +10,9 @@
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .repertoire-header {
@@ -39,12 +42,23 @@
   position: relative;
   width: 100%;
   padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ocultar carrusel móvil en desktop */
+.repertoire-mobile-wrapper {
+  display: none;
 }
 
 .repertoire-swiper {
   width: 100%;
   height: 100%;
   overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .repertoire-swiper .swiper-slide {
@@ -53,6 +67,7 @@
   margin-right: 40px;
   display: flex;
   justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   flex-shrink: 0;
 }
@@ -63,6 +78,7 @@
 
 .repertoire-swiper .swiper-slide-active {
   z-index: 2;
+  transform: translateX(0) !important;
 }
 
 /* Card Styles */
@@ -205,7 +221,7 @@
 
   .repertoire-navigation {
     right: 1rem;
-    top: 0.5rem;
+    top: -4.5rem;
   }
 
   .repertoire-swiper .swiper-slide {
@@ -220,120 +236,292 @@
     height: 450px;
   }
 
-  .repertoire-navigation {
-    top: -4.5rem;
+  /* Ocultar carrusel móvil en desktop */
+  .repertoire-mobile-wrapper {
+    display: none;
   }
 }
 
+/* ============================================
+   MOBILE STYLES - DESDE CERO
+   ============================================ */
 @media (max-width: 768px) {
+  /* Eliminar tap highlight morado globalmente para botones móviles */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
   .repertoire-section {
-    padding: 3rem 1rem;
+    padding: 3rem 0.5rem;
   }
 
   .repertoire-header {
     margin-bottom: 3rem;
+    text-align: center;
   }
 
   .repertoire-title {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .repertoire-subtitle {
     font-size: 1rem;
   }
 
+  /* Ocultar carrusel de desktop en móvil */
   .repertoire-carousel-wrapper {
-    padding: 0 0.5rem;
+    display: none;
   }
 
-  .repertoire-swiper .swiper-slide {
-    width: 550px;
-    margin-right: 30px;
+  /* Contenedor móvil */
+  .repertoire-mobile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
   }
 
-  .repertoire-card {
-    width: 550px;
-    min-width: 550px;
-    max-width: 550px;
-    height: 400px;
+  /* Asegurar que el contenedor padre no limite en móvil */
+  .repertoire-container {
+    max-width: 100%;
   }
 
-  .repertoire-content {
+  /* Flechas arriba - centradas */
+  .repertoire-mobile-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .repertoire-mobile-nav-btn {
+    width: 60px !important;
+    height: 60px !important;
+    background: transparent !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 8px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+    color: #ffffff;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .repertoire-mobile-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .repertoire-mobile-nav-btn:active,
+  .repertoire-mobile-nav-btn:focus,
+  .repertoire-mobile-nav-btn:focus-visible {
+    border-color: #dc2626 !important;
+    background: transparent !important;
+    transform: scale(0.95);
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .repertoire-mobile-nav-btn:focus {
+    outline: none !important;
+    border-color: #ffffff !important;
+  }
+
+  .repertoire-mobile-nav-btn svg {
+    width: 50px !important;
+    height: 50px !important;
+    display: block !important;
+    pointer-events: none;
+    flex-shrink: 0;
+  }
+
+  .repertoire-mobile-nav-btn svg path {
+    stroke: #ffffff !important;
+    stroke-width: 2.5 !important;
+    transition: stroke 0.2s ease;
+  }
+
+  .repertoire-mobile-nav-btn:active svg path,
+  .repertoire-mobile-nav-btn.active svg path {
+    stroke: #dc2626 !important;
+  }
+
+  /* Contenedor de imagen - centrado */
+  .repertoire-mobile-image-container {
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Card móvil - centrada y cuadrada, más grande */
+  .repertoire-mobile-card {
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+    aspect-ratio: 1 / 1;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  /* Imagen wrapper */
+  .repertoire-mobile-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Imagen */
+  .repertoire-mobile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Overlay */
+  .repertoire-mobile-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    z-index: 1;
+  }
+
+  /* Contenido sobre la imagen */
+  .repertoire-mobile-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 2rem;
+    z-index: 2;
   }
 
-  .repertoire-card-title {
-    font-size: 1.6rem;
-    max-width: 50%;
+  .repertoire-mobile-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 0.75rem 0;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    line-height: 1.3;
   }
 
-  .repertoire-card-description {
-    font-size: 0.9rem;
-    max-width: 50%;
-  }
-
-  .repertoire-navigation {
-    right: 0.5rem;
-    top: -4rem;
-  }
-
-  .repertoire-nav-btn {
-    width: 50px;
-    height: 50px;
-  }
-
-  .repertoire-nav-btn svg {
-    width: 32px;
-    height: 32px;
+  .repertoire-mobile-card-description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    line-height: 1.5;
   }
 }
 
+/* Móvil pequeño - 480px */
 @media (max-width: 480px) {
   .repertoire-section {
     padding: 2rem 0.5rem;
+  }
+
+  .repertoire-header {
+    margin-bottom: 2.5rem;
   }
 
   .repertoire-title {
     font-size: 1.8rem;
   }
 
-  .repertoire-carousel-wrapper {
-    padding: 0 0.25rem;
+  .repertoire-subtitle {
+    font-size: 0.9rem;
   }
 
-  .repertoire-swiper .swiper-slide {
-    width: 450px;
-    margin-right: 20px;
+  .repertoire-mobile-navigation {
+    margin-bottom: 1.5rem;
+    gap: 0.75rem;
   }
 
-  .repertoire-card {
-    width: 450px;
-    min-width: 450px;
-    max-width: 450px;
-    height: 350px;
+  .repertoire-mobile-nav-btn {
+    width: 45px;
+    height: 45px;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .repertoire-content {
+  .repertoire-mobile-nav-btn:active {
+    border-color: #dc2626 !important;
+    background: transparent !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .repertoire-mobile-nav-btn:focus {
+    outline: none !important;
+    border-color: #ffffff !important;
+  }
+
+  .repertoire-mobile-nav-btn svg {
+    width: 36px;
+    height: 36px;
+    display: block;
+    pointer-events: none;
+  }
+
+  .repertoire-mobile-nav-btn svg path {
+    stroke: #ffffff;
+    stroke-width: 2.5;
+    transition: stroke 0.2s ease;
+  }
+
+  .repertoire-mobile-nav-btn:active svg path,
+  .repertoire-mobile-nav-btn.active svg path {
+    stroke: #dc2626 !important;
+  }
+
+  .repertoire-mobile-card {
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+  }
+
+  .repertoire-mobile-content {
     padding: 1.5rem;
   }
 
-  .repertoire-card-title {
+  .repertoire-mobile-card-title {
     font-size: 1.3rem;
-    max-width: 50%;
+    margin-bottom: 0.5rem;
   }
 
-  .repertoire-card-description {
-    font-size: 0.85rem;
-    max-width: 50%;
-  }
-
-  .repertoire-nav-btn {
-    width: 45px;
-    height: 45px;
-  }
-
-  .repertoire-nav-btn svg {
-    width: 28px;
-    height: 28px;
+  .repertoire-mobile-card-description {
+    font-size: 0.9rem;
   }
 }
