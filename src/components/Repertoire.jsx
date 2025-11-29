@@ -20,6 +20,7 @@ const Repertoire = ({ initialAnimationComplete }) => {
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
+  const [isMobileAnimating, setIsMobileAnimating] = useState(false);
 
   const repertoireData = [
     {
@@ -104,8 +105,31 @@ const Repertoire = ({ initialAnimationComplete }) => {
                   }
                 }, 50);
               }}
-              speed={0}
-              allowTouchMove={false}
+              onTouchStart={() => {
+                // Pausar autoplay al iniciar arrastre
+                if (swiperInstance.current) {
+                  swiperInstance.current.autoplay.stop();
+                }
+              }}
+              onTouchEnd={() => {
+                // Reanudar autoplay al terminar arrastre
+                if (swiperInstance.current) {
+                  swiperInstance.current.autoplay.start();
+                }
+              }}
+              speed={800}
+              allowTouchMove={true}
+              grabCursor={true}
+              simulateTouch={true}
+              touchRatio={1}
+              touchAngle={45}
+              threshold={5}
+              longSwipesRatio={0.5}
+              longSwipesMs={300}
+              followFinger={true}
+              resistance={true}
+              resistanceRatio={0.85}
+              watchSlidesProgress={true}
               breakpoints={{
                 1024: {
                   slidesPerView: "auto",
@@ -113,9 +137,15 @@ const Repertoire = ({ initialAnimationComplete }) => {
                   centeredSlides: true,
                   autoplay: {
                     delay: 5000,
-                    disableOnInteraction: false,
+                    disableOnInteraction: true,
+                    pauseOnMouseEnter: true,
                   },
                   loop: true,
+                  simulateTouch: true,
+                  grabCursor: true,
+                  allowTouchMove: true,
+                  touchRatio: 1,
+                  threshold: 5,
                 },
               }}
               className="repertoire-swiper"
@@ -195,9 +225,12 @@ const Repertoire = ({ initialAnimationComplete }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
+                  if (isMobileAnimating) return;
+                  setIsMobileAnimating(true);
                   setCurrentMobileIndex((prev) => 
                     prev === 0 ? repertoireData.length - 1 : prev - 1
                   );
+                  setTimeout(() => setIsMobileAnimating(false), 500);
                 }}
               >
                 <svg 
@@ -235,9 +268,12 @@ const Repertoire = ({ initialAnimationComplete }) => {
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
+                  if (isMobileAnimating) return;
+                  setIsMobileAnimating(true);
                   setCurrentMobileIndex((prev) => 
                     prev === repertoireData.length - 1 ? 0 : prev + 1
                   );
+                  setTimeout(() => setIsMobileAnimating(false), 500);
                 }}
               >
                 <svg 
@@ -260,7 +296,7 @@ const Repertoire = ({ initialAnimationComplete }) => {
               </button>
             </div>
             <div className="repertoire-mobile-image-container">
-              <div className="repertoire-mobile-card">
+              <div className={`repertoire-mobile-card ${isMobileAnimating ? 'animating' : ''}`} key={currentMobileIndex}>
                 <div className="repertoire-mobile-image-wrapper">
                   <img 
                     src={repertoireData[currentMobileIndex].image} 
