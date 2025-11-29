@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MotionAnimation from './MotionAnimation';
 import '../styles/RecentEvents.css';
 import santaAnaCountryClubImage from '../assets/images/santa-ana-country-club.webp';
@@ -14,6 +14,18 @@ import fiestasPrivadasImage from '../assets/images/fiestas-privadas.webp';
 
 const RecentEvents = ({ initialAnimationComplete }) => {
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const events = [
     {
@@ -78,7 +90,9 @@ const RecentEvents = ({ initialAnimationComplete }) => {
     }
   ];
 
-  const displayedEvents = showAll ? events : events.slice(0, 8);
+  // En móvil mostrar 3, en desktop mostrar 8
+  const initialCount = isMobile ? 3 : 8;
+  const displayedEvents = showAll ? events : events.slice(0, initialCount);
 
   return (
     <section id="events" className="recent-events-section section">
@@ -105,14 +119,14 @@ const RecentEvents = ({ initialAnimationComplete }) => {
           ))}
         </div>
         
-        {events.length > 8 && (
+        {events.length > initialCount && (
           <MotionAnimation animation="fadeInUp" delay={1000} initialAnimationComplete={initialAnimationComplete}>
             <div className="show-more-container">
               <button 
                 className="show-more-btn"
                 onClick={() => setShowAll(!showAll)}
               >
-                {showAll ? 'Ver menos' : 'Ver más eventos'}
+                {showAll ? 'Ver menos' : 'Ver más'}
               </button>
             </div>
           </MotionAnimation>
