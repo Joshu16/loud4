@@ -108,7 +108,14 @@ const RecentEvents = ({ initialAnimationComplete }) => {
             <MotionAnimation key={event.id} animation="scaleIn" delay={400 + (index * 80)} initialAnimationComplete={initialAnimationComplete}>
               <div className="event-card">
                 <div className="event-image">
-                  <img src={event.image} alt={event.venue} />
+                  <img 
+                    src={event.image} 
+                    alt={event.venue} 
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="600"
+                  />
                   <div className="event-text-overlay">
                     <h3 className="venue-name">{event.venue}</h3>
                     <p className="event-location">{event.location}</p>

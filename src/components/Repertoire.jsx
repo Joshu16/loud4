@@ -159,6 +159,10 @@ const Repertoire = ({ initialAnimationComplete }) => {
                         alt={`${item.alt} - LOUD4 Banda Rock Costa Rica`} 
                         title={`${item.title} - LOUD4`}
                         className="repertoire-image"
+                        loading="lazy"
+                        decoding="async"
+                        width="800"
+                        height="600"
                       />
                       <div className="repertoire-overlay"></div>
                     </div>
@@ -303,6 +307,10 @@ const Repertoire = ({ initialAnimationComplete }) => {
                     alt={`${repertoireData[currentMobileIndex].alt} - LOUD4 Banda Rock Costa Rica`} 
                     title={`${repertoireData[currentMobileIndex].title} - LOUD4`}
                     className="repertoire-mobile-image"
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="600"
                   />
                   <div className="repertoire-mobile-overlay"></div>
                 </div>

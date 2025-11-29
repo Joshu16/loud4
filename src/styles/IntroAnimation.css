@@ -17,6 +17,11 @@
 .intro-content {
   text-align: center;
   position: relative;
+  min-height: 200px; /* Altura fija para evitar variaciones en móvil */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .intro-text {
@@ -89,6 +94,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .intro-content {
+    min-height: 180px; /* Altura fija en móvil */
+  }
+  
   .intro-text.first-text {
     font-size: 2rem;
   }
@@ -99,6 +108,10 @@
 }
 
 @media (max-width: 480px) {
+  .intro-content {
+    min-height: 160px; /* Altura fija en móvil pequeño */
+  }
+  
   .intro-text.first-text {
     font-size: 1.5rem;
   }

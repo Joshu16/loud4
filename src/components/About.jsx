@@ -9,21 +9,38 @@ const Counter = ({ end, label, initialAnimationComplete }) => {
   const observerRef = useRef(null);
 
   const animateCounter = () => {
-    const duration = 2000; // 2 segundos
-    const steps = 60;
-    const increment = end / steps;
-    const stepDuration = duration / steps;
+    const duration = 2000; // 2 segundos total
+    const fastDuration = 800; // Primera parte rápida (800ms)
+    const slowDuration = duration - fastDuration; // Segunda parte lenta (1200ms)
+    const slowStart = Math.max(0, end - 3); // Empezar a ir lento en los últimos 3 números
+    
+    const startTime = Date.now();
     let current = 0;
 
     const timer = setInterval(() => {
-      current += increment;
-      if (current >= end) {
+      const elapsed = Date.now() - startTime;
+      
+      if (elapsed < fastDuration) {
+        // Fase rápida: subir rápido hasta los últimos 3 números
+        const progress = elapsed / fastDuration;
+        // Easing out para acelerar al principio
+        const easedProgress = 1 - Math.pow(1 - progress, 2);
+        current = slowStart * easedProgress;
+      } else {
+        // Fase lenta: subir lentamente los últimos 3 números
+        const slowProgress = Math.min((elapsed - fastDuration) / slowDuration, 1);
+        // Easing in para desacelerar al final
+        const easedSlowProgress = Math.pow(slowProgress, 2);
+        current = slowStart + (end - slowStart) * easedSlowProgress;
+      }
+      
+      if (current >= end || elapsed >= duration) {
         setCount(end);
         clearInterval(timer);
       } else {
         setCount(Math.floor(current));
       }
-    }, stepDuration);
+    }, 16); // ~60fps
   };
 
   useEffect(() => {

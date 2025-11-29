@@ -19,7 +19,16 @@ const Header = ({ initialAnimationComplete }) => {
             if (navRight) navRight.classList.remove('nav-active');
             if (burger) burger.classList.remove('active');
           }}>
-            <img src={logoImage} alt="LOUD4 - Banda de Rock Clásico Costa Rica" title="LOUD4 Logo" className="band-logo" />
+            <img 
+              src={logoImage} 
+              alt="LOUD4 - Banda de Rock Clásico Costa Rica" 
+              title="LOUD4 Logo" 
+              className="band-logo"
+              width="50"
+              height="50"
+              loading="eager"
+              decoding="async"
+            />
             <h1 className="band-name">LOUD4</h1>
           </a>
         </div>

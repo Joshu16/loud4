@@ -54,7 +54,15 @@ const Footer = () => {
         
           <div className="footer-bottom">
             <div className="social-links">
-              <img src={logoImage} alt="Loud4 Logo" className="footer-logo" />
+              <img 
+                src={logoImage} 
+                alt="Loud4 Logo" 
+                className="footer-logo"
+                width="50"
+                height="50"
+                loading="lazy"
+                decoding="async"
+              />
               <a href="https://www.instagram.com/bandaloud4/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                 <InstagramIcon size={20} />
               </a>
@@ -83,6 +91,10 @@ const Footer = () => {
                     src={bysaborioLogo} 
                     alt="BySaborío Digital Solutions" 
                     className="developer-logo"
+                    width="100"
+                    height="30"
+                    loading="lazy"
+                    decoding="async"
                   />
                   BySaborío Digital Solutions
                 </a>

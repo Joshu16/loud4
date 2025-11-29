@@ -218,20 +218,38 @@
     <!-- Manifest -->
     <link rel="manifest" href="/manifest.json" />
     
-    <!-- Performance -->
+    <!-- Performance - Resource Hints -->
+    <!-- Preconnect a dominios externos críticos -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Preload de recursos críticos -->
     <link rel="preload" href="/favicon.svg" as="image" />
     
-    <!-- Google Fonts - Rock Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Rock+Salt&family=Creepster&family=Nosifer&family=Butcherman&family=Fascinate+Inline&family=Griffy&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Carga asíncrona con font-display: swap -->
+    <link 
+      rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Rock+Salt&family=Creepster&family=Nosifer&family=Butcherman&family=Fascinate+Inline&family=Griffy&display=swap" 
+      as="style" 
+    />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Rock+Salt&family=Creepster&family=Nosifer&family=Butcherman&family=Fascinate+Inline&family=Griffy&display=swap" 
+      rel="stylesheet" 
+      media="print" 
+      onload="this.media='all'" 
+    />
+    <noscript>
+      <link 
+        href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Rock+Salt&family=Creepster&family=Nosifer&family=Butcherman&family=Fascinate+Inline&family=Griffy&display=swap" 
+        rel="stylesheet" 
+      />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Script principal con defer para no bloquear render -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
