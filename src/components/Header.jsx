@@ -30,7 +30,7 @@ const Header = ({ initialAnimationComplete }) => {
             burger.classList.remove('active');
           }}>
           </div>
-          <a href="#home" className="nav-link" onClick={() => {
+          <a href="#repertoire" className="nav-link" onClick={() => {
             const navRight = document.querySelector('.nav-right');
             const burger = document.querySelector('.nav-burger');
             navRight.classList.remove('nav-active');

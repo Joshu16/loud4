@@ -93,7 +93,7 @@ const Gallery = ({ initialAnimationComplete }) => {
           <div className="featured-video-container">
             <div className="featured-video-wrapper">
               <iframe
-                src={`https://www.youtube.com/embed/${featuredVideo.youtubeId}?rel=0&modestbranding=1`}
+                src={`https://www.youtube.com/embed/${featuredVideo.youtubeId}?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=${featuredVideo.youtubeId}`}
                 title={featuredVideo.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
