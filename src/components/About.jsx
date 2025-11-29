@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import MotionAnimation from './MotionAnimation';
 import '../styles/About.css';
 
-const Counter = ({ end, label, delay, initialAnimationComplete }) => {
+const Counter = ({ end, label, initialAnimationComplete }) => {
   const [count, setCount] = useState(0);
   const hasAnimatedRef = useRef(false);
   const counterRef = useRef(null);
@@ -30,16 +30,17 @@ const Counter = ({ end, label, delay, initialAnimationComplete }) => {
     if (!initialAnimationComplete) return;
     if (hasAnimatedRef.current) return; // Ya se animó, no hacer nada
 
-    observerRef.current = new IntersectionObserver(
+    const currentCounterRef = counterRef.current;
+    const currentObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimatedRef.current) {
             hasAnimatedRef.current = true;
             animateCounter();
             // Desconectar el observer inmediatamente después de animar
-            if (observerRef.current && counterRef.current) {
-              observerRef.current.unobserve(counterRef.current);
-              observerRef.current.disconnect();
+            if (currentObserver && currentCounterRef) {
+              currentObserver.unobserve(currentCounterRef);
+              currentObserver.disconnect();
             }
           }
         });
@@ -47,16 +48,19 @@ const Counter = ({ end, label, delay, initialAnimationComplete }) => {
       { threshold: 0.5 }
     );
 
-    if (counterRef.current && observerRef.current) {
-      observerRef.current.observe(counterRef.current);
+    observerRef.current = currentObserver;
+
+    if (currentCounterRef && currentObserver) {
+      currentObserver.observe(currentCounterRef);
     }
 
     return () => {
-      if (observerRef.current && counterRef.current) {
-        observerRef.current.unobserve(counterRef.current);
-        observerRef.current.disconnect();
+      if (currentObserver && currentCounterRef) {
+        currentObserver.unobserve(currentCounterRef);
+        currentObserver.disconnect();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialAnimationComplete, end]);
 
   return (
@@ -71,12 +75,12 @@ const About = ({ initialAnimationComplete }) => {
   return (
     <section id="about" className="band-section">
       <div className="container">
-        <div className="counters-grid">
-          <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
+        <div className="about-content-wrapper">
+          <div className="counters-grid">
+            <MotionAnimation animation="fadeInUp" delay={200} initialAnimationComplete={initialAnimationComplete}>
             <Counter 
               end={18} 
               label="Años en tarimas" 
-              delay={200}
               initialAnimationComplete={initialAnimationComplete}
             />
           </MotionAnimation>
@@ -84,7 +88,6 @@ const About = ({ initialAnimationComplete }) => {
             <Counter 
               end={100} 
               label="Conciertos realizados" 
-              delay={300}
               initialAnimationComplete={initialAnimationComplete}
             />
           </MotionAnimation>
@@ -92,10 +95,21 @@ const About = ({ initialAnimationComplete }) => {
             <Counter 
               end={20} 
               label="Lugares cubiertos" 
-              delay={400}
               initialAnimationComplete={initialAnimationComplete}
             />
-          </MotionAnimation>
+            </MotionAnimation>
+          </div>
+          <div className="loud4-vertical">
+            <MotionAnimation animation="fadeInUp" delay={500} initialAnimationComplete={initialAnimationComplete}>
+              <div className="loud4-letters">
+                <span>L</span>
+                <span>O</span>
+                <span>U</span>
+                <span>D</span>
+                <span>4</span>
+              </div>
+            </MotionAnimation>
+          </div>
         </div>
       </div>
     </section>

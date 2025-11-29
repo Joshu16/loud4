@@ -56,6 +56,14 @@ const WhyChooseUs = ({ initialAnimationComplete }) => {
             </MotionAnimation>
           ))}
         </div>
+        
+        <MotionAnimation animation="fadeInUp" delay={1000} initialAnimationComplete={initialAnimationComplete}>
+          <div className="why-choose-us-cta">
+            <a href="#contact" className="agenda-btn">
+              Agenda tu Evento
+            </a>
+          </div>
+        </MotionAnimation>
       </div>
     </section>
   );

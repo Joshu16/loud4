@@ -22,19 +22,52 @@
   text-align: center;
 }
 
+.about-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .counters-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.loud4-vertical {
+  display: none;
+}
+
+.loud4-letters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.loud4-letters span {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
 }
 
 .counter-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  text-align: center;
 }
 
 .counter-number {
@@ -86,10 +119,28 @@
     margin-bottom: 2rem;
   }
   
+  .about-content-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
   .counters-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-    max-width: 400px;
+    flex: 0 0 auto;
+  }
+  
+  .loud4-vertical {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+  
+  .loud4-letters span {
+    font-size: 2.5rem;
   }
   
   .counter-number {

@@ -72,6 +72,41 @@
   margin: 0;
 }
 
+.why-choose-us-cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+
+.agenda-btn {
+  display: inline-block;
+  background: #dc2626;
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #dc2626;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.agenda-btn:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.agenda-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .why-choose-us-section {
@@ -106,6 +141,16 @@
   .icon-text {
     font-size: 0.7rem;
     padding: 0.4rem 0.8rem;
+  }
+  
+  .why-choose-us-cta {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+  
+  .agenda-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
   }
 }
 

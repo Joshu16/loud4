@@ -10,10 +10,17 @@ const Header = ({ initialAnimationComplete }) => {
       {/* Header Navigation - Siempre visible */}
       <nav className="navbar">
         <div className="nav-left">
-          <div className="logo-container">
+          <a href="#home" className="logo-container" onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const navRight = document.querySelector('.nav-right');
+            const burger = document.querySelector('.nav-burger');
+            if (navRight) navRight.classList.remove('nav-active');
+            if (burger) burger.classList.remove('active');
+          }}>
             <img src={logoImage} alt="LOUD4 - Banda de Rock Clásico Costa Rica" title="LOUD4 Logo" className="band-logo" />
             <h1 className="band-name">LOUD4</h1>
-          </div>
+          </a>
         </div>
         <div className="nav-right">
           <div className="nav-close-btn" onClick={() => {
