@@ -13,19 +13,23 @@
     <meta name="description" content="LOUD4 es una banda profesional de rock clásico en Costa Rica. Especialistas en eventos corporativos, bodas, fiestas privadas y celebraciones. Repertorio de rock clásico en inglés y español." />
     <meta name="keywords" content="banda rock Costa Rica, música eventos corporativos, banda bodas, rock clásico, eventos privados, música en vivo, LOUD4, banda profesional Costa Rica" />
     <meta name="author" content="LOUD4" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="language" content="Spanish" />
     <meta name="geo.region" content="CR" />
     <meta name="geo.country" content="Costa Rica" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="LOUD4 - Banda de Rock Clásico para Eventos | Costa Rica" />
     <meta property="og:description" content="LOUD4 es una banda profesional de rock clásico en Costa Rica. Especialistas en eventos corporativos, bodas, fiestas privadas y celebraciones." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://loud4-band.com" />
-    <meta property="og:image" content="https://loud4-band.com/src/assets/images/logo.webp" />
+    <meta property="og:image" content="https://loud4-band.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LOUD4 - Banda de Rock Clásico para Eventos en Costa Rica" />
     <meta property="og:site_name" content="LOUD4" />
     <meta property="og:locale" content="es_ES" />
     
@@ -33,12 +37,119 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="LOUD4 - Banda de Rock Clásico para Eventos | Costa Rica" />
     <meta name="twitter:description" content="LOUD4 es una banda profesional de rock clásico en Costa Rica. Especialistas en eventos corporativos, bodas, fiestas privadas y celebraciones." />
-    <meta name="twitter:image" content="https://loud4-band.com/src/assets/images/logo.webp" />
+    <meta name="twitter:image" content="https://loud4-band.com/og-image.png" />
+    <meta name="twitter:image:alt" content="LOUD4 - Banda de Rock Clásico para Eventos en Costa Rica" />
+    <meta name="twitter:url" content="https://loud4-band.com" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://loud4-band.com" />
     
     <!-- Schema.org Structured Data -->
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LOUD4",
+      "url": "https://loud4-band.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://loud4-band.com/src/assets/images/logo.webp",
+        "width": 512,
+        "height": 512
+      },
+      "description": "LOUD4 es una banda profesional de rock clásico en Costa Rica. Especialistas en eventos corporativos, bodas, fiestas privadas y celebraciones especiales.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CR",
+        "addressRegion": "Costa Rica"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish",
+        "email": "info@loud4.com",
+        "telephone": "+50660400987"
+      },
+      "sameAs": [
+        "https://www.instagram.com/bandaloud4/",
+        "https://www.facebook.com/loud4/"
+      ]
+    }
+    </script>
+    
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://loud4-band.com/#organization",
+      "name": "LOUD4",
+      "image": "https://loud4-band.com/src/assets/images/Loud4.webp",
+      "url": "https://loud4-band.com",
+      "telephone": "+50660400987",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CR",
+        "addressRegion": "Costa Rica"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Costa Rica"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Musicales",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Música en vivo para eventos corporativos",
+              "description": "Servicios de música en vivo para eventos corporativos con repertorio de rock clásico"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Música para bodas",
+              "description": "Servicios musicales profesionales para bodas y celebraciones especiales"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fiestas privadas",
+              "description": "Música en vivo para fiestas privadas y eventos especiales"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- WebSite Schema with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LOUD4",
+      "url": "https://loud4-band.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://loud4-band.com/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- MusicGroup Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -99,11 +210,17 @@
     <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#000000" />
     <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="application-name" content="LOUD4" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=no" />
     
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
     <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     <link rel="preload" href="/favicon.svg" as="image" />

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MotionAnimation from './MotionAnimation';
 import '../styles/FAQ.css';
+
+const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://loud4-band.com';
 
 const FAQ = ({ initialAnimationComplete }) => {
   const [openItem, setOpenItem] = useState(null);
@@ -36,6 +38,42 @@ const FAQ = ({ initialAnimationComplete }) => {
   const toggleItem = (id) => {
     setOpenItem(openItem === id ? null : id);
   };
+
+  // Agregar FAQPage Schema
+  useEffect(() => {
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqItems.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    };
+
+    // Remover schema existente si existe
+    const existingScript = document.querySelector('script[type="application/ld+json"][data-faq-schema]');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    // Agregar nuevo schema
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.setAttribute('data-faq-schema', 'true');
+    script.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
+
+    return () => {
+      const scriptToRemove = document.querySelector('script[type="application/ld+json"][data-faq-schema]');
+      if (scriptToRemove) {
+        scriptToRemove.remove();
+      }
+    };
+  }, []);
 
   return (
     <section className="faq-section">

@@ -3,6 +3,7 @@ import '../styles/Navbar.css';
 import '../styles/Header.css';
 import MotionAnimation from './MotionAnimation';
 import logoImage from '../assets/images/logo.webp';
+import backgroundImage from '../assets/images/Bg.webp';
 
 const Header = ({ initialAnimationComplete }) => {
   return (
@@ -74,7 +75,13 @@ const Header = ({ initialAnimationComplete }) => {
         </div>
       </nav>
 
-      <header id="home" className="hero-section">
+      <header 
+        id="home" 
+        className="hero-section"
+        style={{
+          backgroundImage: `url(${backgroundImage})`
+        }}
+      >
         {/* Main CTA Section */}
         <div className="main-cta">
           <MotionAnimation animation="fadeInUp" delay={100} initialAnimationComplete={initialAnimationComplete} hero={true}>

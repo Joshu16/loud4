@@ -1,0 +1,30 @@
+{
+  "name": "LOUD4 - Banda de Rock Clásico para Eventos",
+  "short_name": "LOUD4",
+  "description": "LOUD4 es una banda profesional de rock clásico en Costa Rica. Especialistas en eventos corporativos, bodas, fiestas privadas y celebraciones.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/src/assets/images/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/src/assets/images/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["music", "entertainment", "business"],
+  "lang": "es-ES",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
+
